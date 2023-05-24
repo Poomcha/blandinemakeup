@@ -12,11 +12,15 @@ export default function Menu() {
 
   const [showMenu, setShowMenu] = useState(false);
 
+  const closeMenu = () => {
+    setShowMenu(false);
+  };
   const handleNav = (e: BaseSyntheticEvent) => {
     setCurrentPage((prev) => ({
       ...prev,
       current: prev.names.findIndex((name) => name === e.target.id),
     }));
+    closeMenu();
   };
 
   const links = pages.names.map((name) => (
