@@ -15,7 +15,7 @@ interface PagesProviderI {
 
 export const PagesContext = createContext<PagesContextI<PagesI> | null>(null);
 
-const pagesNames = ['home', 'showcase', 'prestations', 'contact'];
+const pagesNames = ['accueil', 'portfolio', 'prestations', 'contact'];
 
 export default function PageProvider({ children }: PagesProviderI) {
   const [pages, setCurrentPage] = useState<PagesI>({

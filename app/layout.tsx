@@ -1,5 +1,6 @@
 'use client';
 
+import './globals.css';
 import PageProvider from '../context/pages';
 import Menu from '@/components/menu';
 import { Metadata } from 'next';
