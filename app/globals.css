@@ -39,6 +39,12 @@ button {
   transition: transform 130ms ease;
 }
 
+.page {
+  display: flex;
+  height: 100vh;
+  overflow-y: hidden;
+}
+
 @media (hover: hover) {
   button:hover {
     transform: scale3d(110%, 110%, 110%);
