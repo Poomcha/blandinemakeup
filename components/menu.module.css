@@ -23,6 +23,11 @@
   left: 10px;
   border: 2px solid white;
   border-radius: 5px;
+  display: flex;
+}
+
+.menu__button__icon {
+  margin: auto;
 }
 
 .menu__links {

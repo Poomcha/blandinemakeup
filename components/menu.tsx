@@ -1,3 +1,5 @@
+'use client';
+
 import styles from './menu.module.css';
 import { BaseSyntheticEvent, useContext, useState } from 'react';
 import { PagesContext, PagesContextI, PagesI } from '@/context/pages';
@@ -47,9 +49,21 @@ export default function Menu() {
     <>
       <button className={styles.menu__button} onClick={handleMenu}>
         {showMenu ? (
-          <Image src="/icons/close.svg" alt="close" width={40} height={40} />
+          <Image
+            src="/icons/close.svg"
+            alt="close"
+            width={40}
+            height={40}
+            className={styles.menu__button__icon}
+          />
         ) : (
-          <Image src="/icons/menu.svg" alt="menu" width={40} height={40} />
+          <Image
+            src="/icons/menu.svg"
+            alt="menu"
+            width={40}
+            height={40}
+            className={styles.menu__button__icon}
+          />
         )}
       </button>
       <nav
