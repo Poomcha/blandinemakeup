@@ -1,5 +1,8 @@
+'use client';
+
 import styles from './home.module.css';
 import cN from 'classnames';
+import LinkComponent from '@/components/link';
 
 export default function Home() {
   return (
@@ -8,27 +11,49 @@ export default function Home() {
         <span className={styles.temp}>IMAGE</span>
       </div>
       <section className={styles.section}>
-        <h1 className={styles.title}>BLANDINEMAKEUP</h1>
+        <h1 className={styles.title}>TITRE</h1>
         <article className={styles.introduction}>
           <span className={styles.temp}>DESCRIPTION</span>
         </article>
         <div className={styles.links}>
           <div className={styles.cards}>
-            <span className={styles.temp}>PRESTATIONS</span>
+            <LinkComponent
+              action={() => {}}
+              href={'/portfolio'}
+              name={'portfolio'}
+            ></LinkComponent>
           </div>
           <div className={styles.cards}>
-            <span className={styles.temp}>PORTFOLIO</span>
+            <LinkComponent
+              action={() => {}}
+              href={'/prestations'}
+              name={'prestations'}
+            ></LinkComponent>
           </div>
         </div>
         <div className={styles.contacts}>
           <div className={styles.contacticon}>
-            <span className={styles.temp}>IG</span>
+            <LinkComponent
+              action={() => {}}
+              href={'https://www.instagram.com/blandinemakeup34/'}
+              openNew={true}
+              name={'instagram'}
+            ></LinkComponent>
           </div>
           <div className={styles.contacticon}>
-            <span className={styles.temp}>@</span>
+            <LinkComponent
+              action={() => {}}
+              href={'mailto:blandine.degeneve@gmail.com'}
+              name={'email'}
+            ></LinkComponent>{' '}
           </div>
           <div className={styles.contacticon}>
-            <span className={styles.temp}>LI</span>
+            <LinkComponent
+              action={() => {}}
+              href={'https://www.linkedin.com/in/blandine-degeneve-81178b172/'}
+              openNew={true}
+              name={'linkedIn'}
+            ></LinkComponent>
           </div>
         </div>
       </section>

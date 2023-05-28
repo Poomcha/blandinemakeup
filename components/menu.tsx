@@ -1,14 +1,14 @@
 'use client';
 
 import styles from './menu.module.css';
-import { BaseSyntheticEvent, useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 import { PagesContext, PagesContextI, PagesI } from '@/context/pages';
-import Link from 'next/link';
+import LinkComponent from './link';
 import Image from 'next/image';
 import cN from 'classnames';
 
 export default function Menu() {
-  const { pages, setCurrentPage } = useContext(
+  const { pages } = useContext(
     PagesContext
   ) as PagesContextI<PagesI>;
 
@@ -17,27 +17,18 @@ export default function Menu() {
   const closeMenu = () => {
     setShowMenu(false);
   };
-  const handleNav = (e: BaseSyntheticEvent) => {
-    setCurrentPage((prev) => ({
-      ...prev,
-      current: prev.names.findIndex((name) => name === e.target.id),
-    }));
-    closeMenu();
-  };
 
   const links = pages.names.map((name) => (
     <li key={name} className={styles.menu__links__link}>
-      <Link
+      <LinkComponent
+        action={closeMenu}
         href={
           ['portfolio', 'contact', 'prestations'].includes(name)
             ? `/${name}`
             : '/'
         }
-        onClick={handleNav}
-        id={name}
-      >
-        {name.toUpperCase()}
-      </Link>
+        name={name}
+      ></LinkComponent>
     </li>
   ));
 
