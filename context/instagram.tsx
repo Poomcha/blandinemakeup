@@ -34,7 +34,8 @@ export const InstagramContext = createContext<
 >(undefined);
 
 const getData = async () => {
-  const res = await fetch('http://localhost:3000/api/instagram');
+  const api_url = process.env.NODE_ENV ? '' : 'http://localhost:3000';
+  const res = await fetch(`${api_url}/api/instagram`);
   const data = await res.json();
   return data;
 };
