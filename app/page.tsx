@@ -3,12 +3,17 @@
 import styles from './home.module.css';
 import cN from 'classnames';
 import LinkComponent from '@/components/link';
+import { Context, useContext } from 'react';
+import { InstagramContext, InstagramI } from '@/context/instagram';
+import { get_cover } from './utils/instagram';
 
 export default function Home() {
+  const instagram = useContext(InstagramContext as Context<InstagramI>);
   return (
     <div className={cN(styles.home, 'page')}>
       <div className={styles.imgctn}>
-        <span className={styles.temp}>IMAGE</span>
+        {/* <span className={styles.temp}>IMAGE</span> */}
+        <img src={get_cover(instagram)} alt="" className={styles.image} />
       </div>
       <section className={styles.section}>
         <h1 className={styles.title}>TITRE</h1>

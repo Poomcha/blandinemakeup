@@ -8,6 +8,15 @@
   border: 2px solid paleturquoise;
   display: flex;
 }
+
+.image {
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
 .section {
   width: 100vw;
   height: calc(3 * 100vh / 5);
