@@ -4,9 +4,10 @@
 .imgctn {
   width: 100vw;
   height: calc(2 * 100vh / 5);
+  position: relative;
   /* for testing purposes */
-  border: 2px solid paleturquoise;
-  display: flex;
+  /* border: 2px solid paleturquoise;
+  display: flex; */
 }
 
 .image {
@@ -26,7 +27,7 @@
   align-items: center;
   padding: 20px;
   /* for testing purposes */
-  border: 2px solid fuchsia;
+  /* border: 2px solid fuchsia; */
 }
 .title {
   width: 100%;

@@ -7,7 +7,7 @@ export interface InstagramMediaI {
   media_url: string;
   caption: string;
   is_share_to_feed?: boolean;
-  media_type?: ['IMAGE', 'VIDEO', 'CAROUSEL_ALBUM'];
+  media_type?: 'IMAGE' | 'VIDEO' | 'CAROUSEL_ALBUM';
   permalink?: string;
   thumbnail_url?: string;
   timestamp?: number;
@@ -34,8 +34,8 @@ export const InstagramContext = createContext<
 >(undefined);
 
 const getData = async () => {
-  const api_url = process.env.NODE_ENV ? '' : 'http://localhost:3000';
-  const res = await fetch(`${api_url}/api/instagram`);
+  const server_url = process.env.NODE_ENV ? '' : 'http://localhost:3000';
+  const res = await fetch(`${server_url}/api/instagram`);
   const data = await res.json();
   return data;
 };

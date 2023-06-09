@@ -6,14 +6,23 @@ import LinkComponent from '@/components/link';
 import { Context, useContext } from 'react';
 import { InstagramContext, InstagramI } from '@/context/instagram';
 import { get_cover } from './utils/instagram';
+import Image from 'next/image';
 
 export default function Home() {
   const instagram = useContext(InstagramContext as Context<InstagramI>);
+  const media_url = get_cover(instagram);
   return (
     <div className={cN(styles.home, 'page')}>
       <div className={styles.imgctn}>
-        {/* <span className={styles.temp}>IMAGE</span> */}
-        <img src={get_cover(instagram)} alt="" className={styles.image} />
+        {media_url && (
+          <Image
+            src={media_url}
+            alt="Photo de Couverture"
+            fill
+            priority
+            className={styles.image}
+          ></Image>
+        )}
       </div>
       <section className={styles.section}>
         <h1 className={styles.title}>TITRE</h1>
