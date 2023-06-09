@@ -20,7 +20,7 @@ export default function Portfolio() {
     ? instagram.data
         .filter((media) => media.media_type !== 'VIDEO')
         .map((media) => (
-          <div className={styles.image_ctn}>
+          <div className={styles.image_ctn} key={media.id}>
             <Image
               src={media.media_url}
               alt={media.caption}
