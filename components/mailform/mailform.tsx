@@ -245,8 +245,6 @@ export default function MailForm() {
           type="submit"
           className={styles.mailform__button}
           disabled={formik.submitCount >= sendLimit}
-          // make :active works on touch devices.
-          onTouchStart={() => {}}
         >
           {'envoyer '}
           <i
