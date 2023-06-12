@@ -36,7 +36,7 @@ export default function LinkComponent({
       id={name}
       target={openNew ? '_blank' : '_self'}
     >
-      {children ? children : name.toUpperCase()}
+      {children}
     </Link>
   );
 }

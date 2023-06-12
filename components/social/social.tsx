@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import LinkComponent from '../link/link';
 import styles from './social.module.css';
 import cN from 'classnames';
@@ -6,11 +7,10 @@ import Image from 'next/image';
 export default function Social() {
   return (
     <div className={cN(styles.social, 'glassmorphism', 'rounded')}>
-      <LinkComponent
-        action={() => {}}
+      <Link
         href={'https://www.instagram.com/blandinemakeup34/'}
-        openNew={true}
-        name={'instagram'}
+        target="_blank"
+        id={'instagram'}
       >
         <Image
           src={'/icons/instagram.png'}
@@ -19,12 +19,11 @@ export default function Social() {
           alt="Logo d\'instagram"
           className={styles.icon}
         />
-      </LinkComponent>
-      <LinkComponent
-        action={() => {}}
+      </Link>
+      <Link
         href={'https://www.linkedin.com/in/blandine-degeneve-81178b172/'}
-        openNew={true}
-        name={'linkedin'}
+        target="_blank"
+        id={'linkedin'}
       >
         <Image
           src={'/icons/linkedin.png'}
@@ -33,12 +32,8 @@ export default function Social() {
           alt="Logo de linkedIn"
           className={styles.icon}
         />
-      </LinkComponent>
-      <LinkComponent
-        action={() => {}}
-        href={`mailto:${process.env.EMAIL}`}
-        name={'email'}
-      >
+      </Link>
+      <Link href={`mailto:${'blandine.degeneve@gmail.com'}`} id={'email'}>
         <Image
           src={'/icons/gmail.png'}
           width={64}
@@ -46,7 +41,7 @@ export default function Social() {
           alt="Logo email"
           className={styles.icon}
         />
-      </LinkComponent>
+      </Link>
     </div>
   );
 }
