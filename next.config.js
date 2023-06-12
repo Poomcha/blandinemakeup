@@ -7,11 +7,6 @@ const nextConfig = {
         hostname: 'scontent*.cdninstagram.com',
         port: '',
       },
-      {
-        protocol: 'https',
-        hostname: 'scontent-sjc3-1.cdninstagram.com',
-        port: '',
-      },
     ],
   },
 };
