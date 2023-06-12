@@ -3,7 +3,7 @@
 import styles from './menu.module.css';
 import { useContext, useState } from 'react';
 import { PagesContext, PagesContextI, PagesI } from '@/context/pages';
-import LinkComponent from './link';
+import LinkComponent from '../link/link';
 import Image from 'next/image';
 import cN from 'classnames';
 

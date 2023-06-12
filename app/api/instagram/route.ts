@@ -1,3 +1,4 @@
+import { InstagramMediaI } from '@/context/instagram';
 import { NextResponse } from 'next/server';
 
 export async function GET() {
@@ -18,7 +19,9 @@ export async function GET() {
   }/me/media?fields=${fields.join()}&access_token=${
     process.env.INSTAGRAM_TOKEN
   }&limit=${entries_limit}`;
+
   const res = await fetch(request_url);
-  const data = await res.json();
-  return NextResponse.json(data);
+  const raw_data = await res.json();
+
+  return NextResponse.json(raw_data);
 }

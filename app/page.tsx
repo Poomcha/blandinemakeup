@@ -2,15 +2,15 @@
 
 import styles from './home.module.css';
 import cN from 'classnames';
-import LinkComponent from '@/components/link';
+import LinkComponent from '@/components/link/link';
 import { Context, useContext } from 'react';
 import { InstagramContext, InstagramI } from '@/context/instagram';
-import { get_cover } from './utils/instagram';
+import { get_media } from './utils/instagram';
 import Image from 'next/image';
 
 export default function Home() {
   const instagram = useContext(InstagramContext as Context<InstagramI>);
-  const media_url = get_cover(instagram);
+  const media_url = get_media(instagram, 'cover');
   return (
     <div className={cN(styles.home, 'page')}>
       <div className={styles.imgctn}>

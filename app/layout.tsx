@@ -1,6 +1,6 @@
 import './globals.css';
 import PageProvider from '../context/pages';
-import Menu from '@/components/menu';
+import Menu from '@/components/menu/menu';
 import { Metadata } from 'next';
 import InstagramProvider from '@/context/instagram';
 

@@ -23,7 +23,11 @@ export default function Portfolio() {
           <div className={styles.image_ctn} key={media.id}>
             <Image
               src={media.media_url}
-              alt={media.caption}
+              alt={
+                media.caption
+                  ? media.caption
+                  : 'Image aléatoire de @blandinemakeup34.'
+              }
               fill
               className={styles.image}
             />

@@ -17,13 +17,16 @@
     "bcrypt": "^5.1.0",
     "eslint": "8.41.0",
     "eslint-config-next": "13.4.3",
+    "formik": "^2.4.1",
     "mongoose": "^7.2.2",
     "next": "^13.4.4",
+    "nodemailer": "^6.9.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "5.0.4"
   },
   "devDependencies": {
+    "@types/nodemailer": "^6.4.8",
     "classnames": "^2.3.2",
     "dotenv": "^16.1.4"
   }

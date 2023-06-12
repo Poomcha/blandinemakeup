@@ -1,11 +1,12 @@
 'use client';
 
-import { createContext, useEffect, useState } from 'react';
+import { filter_medias } from '@/app/utils/instagram';
+import { Dispatch, createContext, useEffect, useState } from 'react';
 
 export interface InstagramMediaI {
   id: string;
   media_url: string;
-  caption: string;
+  caption: string | undefined;
   is_share_to_feed?: boolean;
   media_type?: 'IMAGE' | 'VIDEO' | 'CAROUSEL_ALBUM';
   permalink?: string;
@@ -41,9 +42,12 @@ const getData = async () => {
 };
 
 export default function InstagramProvider({ children }: InstagramProviderI) {
-  const [data, setData] = useState(undefined);
+  const [data, setData] = useState(undefined) as [
+    undefined | InstagramI,
+    Dispatch<InstagramI | undefined>
+  ];
   useEffect(() => {
-    getData().then((data) => setData(data));
+    getData().then((data) => setData(filter_medias(data)));
   }, []);
   return (
     <InstagramContext.Provider value={data}>

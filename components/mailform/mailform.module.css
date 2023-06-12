@@ -1,0 +1,137 @@
+.mailform {
+  --mailform-width: 95%;
+  --mailform-height: max-content;
+  width: var(--mailform-width);
+  max-width: 360px;
+  height: fit-content;
+  margin: auto;
+  opacity: 1;
+  backdrop-filter: none;
+  border: 2px solid white;
+  border-radius: 5px;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: rgba(0, 0, 0, 0.50);
+  box-shadow: 0 2px 6px 0 rgba( 255, 255, 255, 0.50 );
+  backdrop-filter: blur( 8px );
+}
+
+.mailform__close_ctn {
+  width: 100%;
+  height: 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+}
+
+/* .mailform__close {
+  width: fit-content;
+  height: 2rem;
+  cursor: pointer;
+  background-color: var(--color-2);
+  border: none;
+  border-bottom: 2px solid white;
+  font-size: 1rem;
+  margin-left: auto;
+} */
+
+.mailform__label {
+  position: relative;
+  width: 100%;
+  height: 4rem;
+}
+
+.mailform__label--message {
+  height: 8rem;
+}
+
+.mailform__label--firstname,
+.mailform__label--lastname {
+  width: 48%;
+}
+
+.mailform__label--firstname {
+  margin-right: auto;
+}
+
+.mailform__input {
+  width: 100%;
+  height: 2rem;
+  padding: 5px;
+  border: none;
+  border-bottom: 2px solid white;
+  font-size: 1rem;
+}
+
+.mailform__input--firstname {
+  margin-right: auto;
+}
+
+.mailform__input--message {
+  border: 2px solid white;
+  border-radius: 5px;
+  height: 6rem;
+  resize: none;
+}
+
+.mailform__limit {
+  width: 100%;
+  display: inline-block;
+  text-align: end;
+  position: absolute;
+  top: 4.5rem;
+  left: 0;
+  padding-right: 8px;
+}
+
+.mailform__error {
+  height: 2rem;
+  padding-top: 0.25rem;
+  font-size: 1rem;
+}
+
+.mailform__button {
+  width: 100%;
+  height: 2rem;
+  border: 2px solid white;
+  border-radius: 5px;
+  background-color: white;
+  color: black;
+  font-size: 1rem;
+  box-shadow: 1px 4px white;
+  cursor: pointer;
+  margin-bottom: 4px;
+}
+
+.mailform__button:active {
+  box-shadow: 0px 1px white;
+  transform: translate3d(1px, 3px, 0);
+}
+
+.mailform__button > svg {
+  color: white;
+}
+
+@keyframes shake {
+  40% {
+    transform: rotateZ(20deg);
+  }
+  80% {
+    transform: rotateZ(-20deg);
+  }
+}
+
+.mailform__confirmation {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.mailform__confirmation > span {
+  width: 100%;
+}
+
+@media (hover: hover) {
+  .mailform__button:hover > svg {
+    animation: shake alternate 2 0.3s;
+  }
+}

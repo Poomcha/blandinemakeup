@@ -1,10 +1,24 @@
-import { InstagramI } from '@/context/instagram';
+import { InstagramI, InstagramMediaI } from '@/context/instagram';
 
-// Get cover image.
-export function get_cover(instagram: InstagramI) {
+// Filter for usable images.
+export function filter_medias(instagram: InstagramI) {
   if (instagram) {
-    return instagram.data.filter((data) =>
-      data.caption?.split(' ').find((hashtag) => hashtag === '#cover')
+    const filtered_data = {
+      ...instagram,
+      data: instagram.data.filter((media: InstagramMediaI) =>
+        media.caption ? !media.caption.split(' ').includes('#hide') : false
+      ),
+    };
+
+    return filtered_data;
+  }
+}
+
+// Get media by hashtag.
+export function get_media(instagram: InstagramI, hashtag: string) {
+  if (instagram) {
+    return instagram.data.filter((media) =>
+      media.caption?.split(' ').find((filter) => filter === `#${hashtag}`)
     )[0].media_url;
   }
 }
