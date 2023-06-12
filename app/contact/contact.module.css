@@ -26,8 +26,6 @@
   justify-content: center;
   align-items: center;
   z-index: 1;
-  
-
 }
 
 @media screen and (min-width: 600px) {
@@ -38,6 +36,7 @@
     width: calc(2 * 100vw / 5);
     height: 100vh;
     display: block;
+    position: relative;
   }
   .section {
     width: calc(3 * 100vw / 5);
