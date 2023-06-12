@@ -6,10 +6,9 @@ export function filter_medias(instagram: InstagramI) {
     const filtered_data = {
       ...instagram,
       data: instagram.data.filter((media: InstagramMediaI) =>
-        media.caption ? !media.caption.split(' ').includes('#hide') : false
+        media.caption ? !media.caption.includes('#hide') : false
       ),
     };
-
     return filtered_data;
   }
 }
@@ -18,7 +17,7 @@ export function filter_medias(instagram: InstagramI) {
 export function get_media(instagram: InstagramI, hashtag: string) {
   if (instagram) {
     return instagram.data.filter((media) =>
-      media.caption?.split(' ').find((filter) => filter === `#${hashtag}`)
+      media.caption?.includes(`#${hashtag}`)
     )[0].media_url;
   }
 }
