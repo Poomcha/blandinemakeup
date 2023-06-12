@@ -2,6 +2,7 @@
   position: relative;
   display: flex;
   overflow-y: scroll;
+  align-items: center;
 }
 
 .imgctn {
@@ -26,7 +27,7 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  margin-top: 100px;
+  /* margin-top: 140px; */
 }
 
 @media screen and (min-width: 600px) {
