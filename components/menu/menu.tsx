@@ -8,9 +8,7 @@ import Image from 'next/image';
 import cN from 'classnames';
 
 export default function Menu() {
-  const { pages } = useContext(
-    PagesContext
-  ) as PagesContextI<PagesI>;
+  const { pages } = useContext(PagesContext) as PagesContextI<PagesI>;
 
   const [showMenu, setShowMenu] = useState(false);
 
@@ -38,7 +36,10 @@ export default function Menu() {
 
   return (
     <>
-      <button className={styles.menu__button} onClick={handleMenu}>
+      <button
+        className={cN(styles.menu__button, 'glassmorphism', 'rounded')}
+        onClick={handleMenu}
+      >
         {showMenu ? (
           <Image
             src="/icons/close.svg"
@@ -58,10 +59,14 @@ export default function Menu() {
         )}
       </button>
       <nav
-        className={cN(styles.menu, {
-          [styles.showMenu]: showMenu,
-          [styles.hideMenu]: !showMenu,
-        })}
+        className={cN(
+          styles.menu,
+          {
+            [styles.showMenu]: showMenu,
+            [styles.hideMenu]: !showMenu,
+          },
+          'glassmorphism'
+        )}
       >
         <ul className={styles.menu__links}>{links}</ul>
       </nav>

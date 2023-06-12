@@ -169,7 +169,7 @@ export default function MailForm() {
 
   return (
     <form
-      className={styles.mailform}
+      className={cN(styles.mailform, 'glassmorphism', 'rounded')}
       onSubmit={formik.handleSubmit}
       id="mailform"
     >

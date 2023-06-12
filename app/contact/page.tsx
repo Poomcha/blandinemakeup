@@ -7,6 +7,7 @@ import styles from './contact.module.css';
 import cN from 'classnames';
 import Image from 'next/image';
 import MailForm from '@/components/mailform/mailform';
+import Social from '@/components/social/social';
 
 export default function Contact() {
   const instagram = useContext(InstagramContext as Context<InstagramI>);
@@ -26,6 +27,7 @@ export default function Contact() {
       </div>
       <section className={styles.section}>
         <MailForm />
+        <Social />
       </section>
     </div>
   );

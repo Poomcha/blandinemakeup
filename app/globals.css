@@ -47,6 +47,17 @@ button {
   position: relative;
 }
 
+.glassmorphism {
+  background-color: rgba(0, 0, 0, 0.75);
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  border: 2px solid rgba(0, 0, 0, 0.75);
+}
+
+.rounded {
+  border-radius: 5px;
+}
+
 @media (hover: hover) {
   button:hover {
     transform: scale3d(110%, 110%, 110%);

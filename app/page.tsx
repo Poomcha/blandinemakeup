@@ -7,6 +7,7 @@ import { Context, useContext } from 'react';
 import { InstagramContext, InstagramI } from '@/context/instagram';
 import { get_media } from './utils/instagram';
 import Image from 'next/image';
+import Social from '@/components/social/social';
 
 export default function Home() {
   const instagram = useContext(InstagramContext as Context<InstagramI>);
@@ -46,29 +47,7 @@ export default function Home() {
           </div>
         </div>
         <div className={styles.contacts}>
-          <div className={styles.contacticon}>
-            <LinkComponent
-              action={() => {}}
-              href={'https://www.instagram.com/blandinemakeup34/'}
-              openNew={true}
-              name={'instagram'}
-            ></LinkComponent>
-          </div>
-          <div className={styles.contacticon}>
-            <LinkComponent
-              action={() => {}}
-              href={'mailto:blandine.degeneve@gmail.com'}
-              name={'email'}
-            ></LinkComponent>{' '}
-          </div>
-          <div className={styles.contacticon}>
-            <LinkComponent
-              action={() => {}}
-              href={'https://www.linkedin.com/in/blandine-degeneve-81178b172/'}
-              openNew={true}
-              name={'linkedIn'}
-            ></LinkComponent>
-          </div>
+          <Social />
         </div>
       </section>
     </div>

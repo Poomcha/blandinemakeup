@@ -7,9 +7,16 @@ interface PropsI {
   href: string;
   name: string;
   openNew?: boolean;
+  children?: JSX.Element;
 }
 
-export default function LinkComponent({ action, href, name, openNew }: PropsI) {
+export default function LinkComponent({
+  action,
+  href,
+  name,
+  openNew,
+  children,
+}: PropsI) {
   const { pages, setCurrentPage } = useContext(
     PagesContext
   ) as PagesContextI<PagesI>;
@@ -29,7 +36,7 @@ export default function LinkComponent({ action, href, name, openNew }: PropsI) {
       id={name}
       target={openNew ? '_blank' : '_self'}
     >
-      {name.toUpperCase()}
+      {children ? children : name.toUpperCase()}
     </Link>
   );
 }
