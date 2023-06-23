@@ -8,7 +8,7 @@ export async function POST(req: NextRequest) {
     secure: true,
     auth: {
       type: 'OAuth2',
-      user: 'ben.degeneve.dev@gmail.com',
+      user: 'blandine.degeneve.contact@gmail.com',
       clientId: process.env.MAILER_APP_ID,
       clientSecret: process.env.MAILER_APP_SECRET,
       refreshToken: process.env.GMAIL_REFRESH_TOKEN,
@@ -16,20 +16,29 @@ export async function POST(req: NextRequest) {
   } as TransportOptions;
 
   const defaults = {
-    from: 'ben.degeneve.dev@gmail.com',
-    to: 'ben.degeneve.dev@gmail.com',
+    from: 'blandine.degeneve.contact@gmail.com',
+    to: 'blandine.degeneve.contact@gmail.com',
   };
 
   const transporter = nodemailer.createTransport(transport, defaults);
+
+  // verify connection configuration
+  // transporter.verify(function (error, success) {
+  //   if (error) {
+  //     console.log(error);
+  //   } else {
+  //     console.log('Server is ready to take our messages\n', success);
+  //   }
+  // });
 
   const data = await req.json();
 
   if (data) {
     const message = {
-      sender: data.body.email,
-      subject: data.body.subject,
-      text: data.body.message,
-      html: `<p>${data.body.message}</p>`,
+      sender: data.email,
+      subject: data.subject,
+      text: data.message,
+      html: `<p>${data.message}</p>`,
     };
 
     const lang = 'fr';
@@ -45,16 +54,16 @@ export async function POST(req: NextRequest) {
     };
 
     const confirmation = {
-      to: data.body.email,
+      to: data.email,
       subject: lang === 'fr' ? 'message envoyé 📨' : 'message sent 📨',
       text:
         lang === 'fr'
-          ? `Votre message :\n\n"""\n${data.body.message}\n"""\n\na bien été envoyé !\n\n${signature.text}`
-          : `Your message:\n\n"""\n${data.body.message}\n"""\n\n has been sent!\n\n${signature.text}`,
+          ? `Votre message :\n\n"""\n${data.message}\n"""\n\na bien été envoyé !\n\n${signature.text}`
+          : `Your message:\n\n"""\n${data.message}\n"""\n\n has been sent!\n\n${signature.text}`,
       html:
         lang === 'fr'
-          ? `<div><p>Votre message :<br /><></p><cite>${data.body.subject}</cite><blockquote><cite>${data.body.message}</cite></blockquote>a bien été envoyé !</p><p>${signature.html}</p></div>`
-          : `<div><p>Your message:<br /><cite>${data.body.subject}</cite><blockquote><cite>${data.body.message}</cite></blockquote>has been sent!</p><p>${signature.html}</p></div>`,
+          ? `<div><p>Votre message :<br /><></p><cite>${data.subject}</cite><blockquote><cite>${data.message}</cite></blockquote>a bien été envoyé !</p><p>${signature.html}</p></div>`
+          : `<div><p>Your message:<br /><cite>${data.subject}</cite><blockquote><cite>${data.message}</cite></blockquote>has been sent!</p><p>${signature.html}</p></div>`,
     };
 
     return transporter
@@ -62,9 +71,12 @@ export async function POST(req: NextRequest) {
       .then(() => {
         transporter
           .sendMail(confirmation)
-          .then(() =>
-            NextResponse.json({ message: 'message et confirmation envoyés !' })
-          )
+          .then((res) => {
+            NextResponse.json({
+              message: 'message et confirmation envoyés !',
+              response: res,
+            });
+          })
           .catch((err) => NextResponse.json(err));
       })
       .catch((err) => NextResponse.json(err));

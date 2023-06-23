@@ -43,5 +43,6 @@
   .section {
     width: calc(3 * 100vw / 5);
     height: 100vh;
+    justify-content: center;
   }
 }

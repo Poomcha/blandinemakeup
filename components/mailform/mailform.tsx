@@ -106,9 +106,12 @@ export default function MailForm() {
       message: '',
     } as ValuesI,
     validate,
-    onSubmit: (values: ValuesI) => {
+    onSubmit: async (values: ValuesI) => {
       axios
-        .post('/api/email', { ...values, language: 'fr' })
+        .post('http://localhost:3000/api/email', {
+          ...values,
+          language: 'fr',
+        })
         .then((res) => {})
         .catch((err) => console.log(err));
     },

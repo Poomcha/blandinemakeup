@@ -98,8 +98,8 @@
 }
 
 .mailform__button:active {
-  box-shadow: 0px 1px white;
-  transform: translate3d(1px, 3px, 0);
+  /* box-shadow: 0px 1px white; */
+  transform: translate3d(0.5px, 2px, 0);
 }
 
 .mailform__button > svg {
@@ -125,6 +125,9 @@
 }
 
 @media (hover: hover) {
+  .mailform__button:hover {
+    transform: scale3d(102%, 102%, 102%);
+  }
   .mailform__button:hover > svg {
     animation: shake alternate 2 0.3s;
   }
