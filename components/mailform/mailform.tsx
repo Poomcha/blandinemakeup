@@ -3,8 +3,7 @@ import styles from './mailform.module.css';
 import { useFormik } from 'formik';
 import { useState } from 'react';
 import React from 'react';
-import axios from 'axios';
-import cN from 'classnames';
+  import cN from 'classnames';
 
 interface KeyStringI {
   [key: string]: string;
@@ -107,18 +106,20 @@ export default function MailForm() {
     } as ValuesI,
     validate,
     onSubmit: async (values: ValuesI) => {
-      axios
-        .post(
+      try {
+        await fetch(
           process.env.NODE_ENV
             ? '/api/email'
             : 'http://localhost:3000/api/email',
           {
-            ...values,
-            language: 'fr',
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ ...values, language: 'fr' }),
           }
-        )
-        .then((res) => {})
-        .catch((err) => console.log(err));
+        );
+      } catch (error) {
+        console.log(error);
+      }
     },
   });
 

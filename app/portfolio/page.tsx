@@ -5,6 +5,7 @@ import { InstagramContext, InstagramI } from '@/context/instagram';
 import Image from 'next/image';
 import { Context, useContext } from 'react';
 import cN from 'classnames';
+import useWindowDimensions from '@/hooks/useWindowDimensions';
 
 const categories = [
   'beauté',
@@ -16,6 +17,8 @@ const categories = [
 
 export default function Portfolio() {
   const instagram = useContext(InstagramContext as Context<InstagramI>);
+  const wDimensions = useWindowDimensions();
+  const imageDimensions = (wDimensions.width - 18) / 3;
   const gallery = instagram
     ? instagram.data
         .filter((media) => media.media_type !== 'VIDEO')
@@ -28,7 +31,8 @@ export default function Portfolio() {
                   ? media.caption
                   : 'Image aléatoire de @blandinemakeup34.'
               }
-              fill
+              width={imageDimensions}
+              height={imageDimensions}
               className={styles.image}
             />
           </div>

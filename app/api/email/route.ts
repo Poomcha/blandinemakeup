@@ -43,42 +43,37 @@ export async function POST(req: NextRequest) {
 
     const lang = 'fr';
     const signature = {
-      text: 'Benjamin Degenève\nLinkedIn: https://www.linkedin.com/in/benjamin-degen%C3%A8ve-93b991186/\nGithub: https://github.com/Poomcha',
+      text: 'Blandine Degenève\nLinkedIn: https://www.linkedin.com/in/blandine-degeneve-81178b172/\nInstagram: https://www.instagram.com/blandinemakeup34/',
       html: `
-          <p>
-            <strong>Benjamin Degenève</strong> 
-            <strong><a href="https://www.linkedin.com/in/benjamin-degen%C3%A8ve-93b991186/"> 🔗 LinkedIn</a></strong>
-            <strong><a href="https://github.com/Poomcha"> 🔗 Github</a></strong>
-          </p>
+            <span><strong>Blandine Degenève, Make Up Artist</strong></span><br /><br />
+            <span><strong><a href="https://www.linkedin.com/in/blandine-degeneve-81178b172/"> 🔗 LinkedIn</a></strong><span>
+            <strong><a href="https://www.instagram.com/blandinemakeup34/"> 🔗 Instagram</a></strong><br />
         `,
     };
 
     const confirmation = {
       to: data.email,
-      subject: lang === 'fr' ? 'message envoyé 📨' : 'message sent 📨',
+      subject:
+        lang === 'fr'
+          ? 'message à Blandine Degenève 📨'
+          : 'message to Blandine Degenève 📨',
       text:
         lang === 'fr'
           ? `Votre message :\n\n"""\n${data.message}\n"""\n\na bien été envoyé !\n\n${signature.text}`
           : `Your message:\n\n"""\n${data.message}\n"""\n\n has been sent!\n\n${signature.text}`,
       html:
         lang === 'fr'
-          ? `<div><p>Votre message :<br /><></p><cite>${data.subject}</cite><blockquote><cite>${data.message}</cite></blockquote>a bien été envoyé !</p><p>${signature.html}</p></div>`
-          : `<div><p>Your message:<br /><cite>${data.subject}</cite><blockquote><cite>${data.message}</cite></blockquote>has been sent!</p><p>${signature.html}</p></div>`,
+          ? `<p><span>Votre message :</span><blockquote><cite>Sujet : ${data.subject}<br /><br />${data.message}</cite></blockquote><span>a bien été envoyé !</span></p><p>${signature.html}</p>`
+          : `<p><span>Your message:</span><blockquote><cite>Subject: ${data.subject}<br /><br />${data.message}</cite></blockquote><span>has been sent!</span></p><p>${signature.html}</p>`,
     };
 
-    return transporter
-      .sendMail(message)
-      .then(() => {
-        transporter
-          .sendMail(confirmation)
-          .then((res) => {
-            NextResponse.json({
-              message: 'message et confirmation envoyés !',
-              response: res,
-            });
-          })
-          .catch((err) => NextResponse.json(err));
-      })
-      .catch((err) => NextResponse.json(err));
+    const status = await transporter.sendMail(message);
+
+    if (status.accepted) {
+      await transporter.sendMail(confirmation);
+      return NextResponse.json({ send: true });
+    } else {
+      return NextResponse.json({ send: false });
+    }
   }
 }
