@@ -2,22 +2,23 @@
   display: flex;
   flex-direction: column;
   height: fit-content;
-  /* overflow-y: scroll; */
+  overflow-x: hidden;
 }
 
 .title {
-  width: 100%;
-  margin-top: 10px;
-  margin-right: 10px;
-  text-align: right;
+  width: fit-content;
+  margin-top: 12.5px;
+  padding: 0 12.5px;
+  margin-left: auto;
 }
 
 .gallery {
-  margin-top: 20px;
+  margin-top: 12.5px;
   width: 100%;
   height: 100%;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .image_ctn {

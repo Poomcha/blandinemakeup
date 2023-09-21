@@ -18,7 +18,7 @@ const categories = [
 export default function Portfolio() {
   const instagram = useContext(InstagramContext as Context<InstagramI>);
   const wDimensions = useWindowDimensions();
-  const imageDimensions = (wDimensions.width - 18) / 3;
+  const imageDimensions = wDimensions.width / 3.1;
   const gallery = instagram
     ? instagram.data
         .filter((media) => media.media_type !== 'VIDEO')
