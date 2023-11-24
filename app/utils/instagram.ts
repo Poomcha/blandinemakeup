@@ -14,7 +14,7 @@ export function filter_medias(instagram: InstagramI) {
 }
 
 // Get media by hashtag.
-export function get_media(instagram: InstagramI, hashtag: string) {
+export function get_media_by_hashtag(instagram: InstagramI, hashtag: string) {
   if (instagram) {
     return instagram.data.filter((media) =>
       media.caption?.includes(`#${hashtag}`)

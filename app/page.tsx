@@ -5,13 +5,13 @@ import cN from 'classnames';
 import LinkComponent from '@/components/link/link';
 import { Context, useContext } from 'react';
 import { InstagramContext, InstagramI } from '@/context/instagram';
-import { get_media } from './utils/instagram';
+import { get_media_by_hashtag } from './utils/instagram';
 import Image from 'next/image';
 import Social from '@/components/social/social';
 
 export default function Home() {
   const instagram = useContext(InstagramContext as Context<InstagramI>);
-  const media_url = get_media(instagram, 'cover');
+  const media_url = get_media_by_hashtag(instagram, 'cover');
   return (
     <div className={cN(styles.home, 'page')}>
       <div className={styles.imgctn}>

@@ -9,6 +9,9 @@ export interface InstagramMediaI {
   caption: string | undefined;
   is_share_to_feed?: boolean;
   media_type?: 'IMAGE' | 'VIDEO' | 'CAROUSEL_ALBUM';
+  children?: {
+    data: { id: string }[];
+  };
   permalink?: string;
   thumbnail_url?: string;
   timestamp?: number;
@@ -38,6 +41,7 @@ const getData = async () => {
   const server_url = process.env.NODE_ENV ? '' : 'http://localhost:3000';
   const res = await fetch(`${server_url}/api/instagram`);
   const data = await res.json();
+
   return data;
 };
 

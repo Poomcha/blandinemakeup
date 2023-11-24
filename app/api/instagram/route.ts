@@ -1,7 +1,6 @@
-import { InstagramMediaI } from '@/context/instagram';
 import { NextResponse } from 'next/server';
 
-export async function GET() {
+export async function GET(req: Request) {
   const fields = [
     'id',
     'caption',
@@ -14,22 +13,25 @@ export async function GET() {
     'username',
     'children',
   ];
-  const entries_limit = 1000000;
-  const global_request_url = `${
-    process.env.INSTAGRAM_URL
-  }/me/media?fields=${fields.join()}&access_token=${
-    process.env.INSTAGRAM_TOKEN
-  }&limit=${entries_limit}`;
+  const entries_limit = 100000;
+  const { searchParams } = new URL(req.url);
+  const id = searchParams.get('id');
+  if (id) {
+    const url = `${process.env.INSTAGRAM_URL}/${id}/children?fields=id,media_url&access_token=${process.env.INSTAGRAM_TOKEN}`;
+    const res = await fetch(url);
+    const raw_data = await res.json();
 
-  const res = await fetch(global_request_url);
-  const raw_data = await res.json();
+    return NextResponse.json(raw_data);
+  } else {
+    const url = `${
+      process.env.INSTAGRAM_URL
+    }/me/media?fields=${fields.join()}&access_token=${
+      process.env.INSTAGRAM_TOKEN
+    }&limit=${entries_limit}`;
 
-  // const carousel_request_url = (media_id: string) =>
-  //   `${
-  //     process.env.INSTAGRAM_URL
-  //   }/${media_id}?fields=${fields.join()}&access_token=${
-  //     process.env.INSTAGRAM_TOKEN
-  //   }&limit=${entries_limit}`;
+    const res = await fetch(url);
+    const raw_data = await res.json();
 
-  return NextResponse.json(raw_data);
+    return NextResponse.json(raw_data);
+  }
 }

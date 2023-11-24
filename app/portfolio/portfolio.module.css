@@ -30,3 +30,28 @@
   object-fit: cover;
   padding: 2px;
 }
+
+.dialog {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: none;
+  max-width: 100%;
+  flex-direction: column;
+}
+
+.close_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  position: fixed;
+  top: 0.5rem;
+  right: 0.5rem;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.75);
+}
