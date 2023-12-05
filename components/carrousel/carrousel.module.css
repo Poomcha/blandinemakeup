@@ -1,10 +1,16 @@
 .carrousel {
+  position: relative;
   width: 80vmin;
   height: 80vmax;
   display: flex;
   flex-wrap: nowrap;
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
+  scrollbar-width: 0;
+}
+
+.carrousel::-webkit-scrollbar {
+  display: none;
 }
 
 .image_ctn {
@@ -20,4 +26,42 @@
   height: auto;
   object-fit: cover;
   object-position: center;
+  cursor: pointer;
+}
+
+.linked_dot_ctn {
+  position: fixed;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 40px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.linked_dot {
+  position: relative;
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  background: black;
+  opacity: 0.85;
+  cursor: pointer;
+}
+
+.linked_dot[data-isactive='true']::after {
+  content: ' ';
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  background-color: transparent;
+  border: 3px solid white;
+  opacity: inherit;
 }
