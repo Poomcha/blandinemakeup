@@ -29,6 +29,7 @@ export default function Carrousel(props: CarrouselPropsI) {
         .then((res) => setImages(res))
         .catch((err) => console.log(err));
     }
+    return () => setImages(undefined)
   }, [props]);
 
   const computed_images =
