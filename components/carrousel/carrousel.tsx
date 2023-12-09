@@ -63,7 +63,7 @@ export default function Carrousel(props: CarrouselPropsI) {
       </div>
     );
 
-  const handleScrollIntoView = (e: MouseEvent) => {
+  const handleScrollIntoView = (e: any) => {
     e.preventDefault();
     e.stopPropagation();
     const target = document.getElementById(e.target.dataset.id);

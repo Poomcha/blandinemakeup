@@ -25,7 +25,6 @@ const categories = [
 export interface CarrouselPropsI {
   is_album: boolean;
   id: string | undefined;
-  loading: boolean;
   url: string | undefined;
   caption?: string;
 }
@@ -43,7 +42,6 @@ export default function Portfolio() {
 
   const [carrousel_props, setCarrouselProps] = useState({
     is_album: false,
-    loading: true,
     id: undefined,
     url: undefined,
     caption: undefined,
@@ -54,7 +52,6 @@ export default function Portfolio() {
     if (media.media_type === 'CAROUSEL_ALBUM') {
       setCarrouselProps({
         is_album: true,
-        loading: false,
         id: media.id,
         url: undefined,
         caption: undefined,
@@ -62,7 +59,6 @@ export default function Portfolio() {
     } else {
       setCarrouselProps({
         is_album: true,
-        loading: false,
         id: undefined,
         url: media.media_url,
         caption: media.caption,
@@ -74,7 +70,6 @@ export default function Portfolio() {
     setCarrouselProps({
       is_album: false,
       id: undefined,
-      loading: true,
       url: undefined,
       caption: undefined,
     });
@@ -115,7 +110,6 @@ export default function Portfolio() {
           id={carrousel_props.id}
           url={carrousel_props.url}
           caption={carrousel_props.caption}
-          loading={carrousel_props.loading}
         />
       </dialog>
     </div>
