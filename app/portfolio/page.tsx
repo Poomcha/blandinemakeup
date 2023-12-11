@@ -103,7 +103,7 @@ export default function Portfolio() {
       <section className={styles.gallery}>{gallery}</section>
       <dialog className={styles.dialog}>
         <button className={styles.close_button} onClick={handleClose}>
-          <Image src="/icons/close.svg" alt="Fermer" width={25} height={25} />
+          <Image src="/icons/close.svg" alt="Fermer" width={15} height={15} />
         </button>
         <Carrousel
           is_album={carrousel_props.is_album}
