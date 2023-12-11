@@ -35,7 +35,7 @@ export default function Carrousel(props: CarrouselPropsI) {
     carrousel?.addEventListener('scrollend', (e: any) => {
       const carrousel_width = e.target.clientWidth;
       const carrousel_offset = e.target.scrollLeft;
-      const new_index = carrousel_offset / carrousel_width;
+      const new_index = Math.round(carrousel_offset / carrousel_width);
       setActiveId(new_index);
     });
 
