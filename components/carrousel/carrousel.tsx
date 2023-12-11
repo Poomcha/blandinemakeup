@@ -4,7 +4,8 @@ import styles from './carrousel.module.css';
 
 import { CarrouselPropsI } from '@/app/portfolio/page';
 import { InstagramMediaI } from '@/context/instagram';
-import { Dispatch, MouseEvent, useEffect, useState } from 'react';
+import { Dispatch, useEffect, useState } from 'react';
+import cN from 'classnames';
 import Image from 'next/image';
 
 export default function Carrousel(props: CarrouselPropsI) {
@@ -13,7 +14,7 @@ export default function Carrousel(props: CarrouselPropsI) {
     Dispatch<InstagramMediaI[] | undefined>
   ];
 
-  const [activeId, setActiveId] = useState('');
+  const [activeId, setActiveId] = useState(0);
 
   const getCarouselDatas = async (props: CarrouselPropsI) => {
     const server_url = process.env.NODE_ENV ? '' : 'http://localhost:3000';
@@ -29,17 +30,25 @@ export default function Carrousel(props: CarrouselPropsI) {
         .then((res) => setImages(res))
         .catch((err) => console.log(err));
     }
-    return () => setImages(undefined)
+
+    const carrousel = document.querySelector('#carrousel');
+    carrousel?.addEventListener('scrollend', (e: any) => {
+      const carrousel_width = e.target.clientWidth;
+      const carrousel_offset = e.target.scrollLeft;
+      const new_index = carrousel_offset / carrousel_width;
+      setActiveId(new_index);
+    });
+
+    return () => {
+      setImages(undefined);
+      setActiveId(0);
+    };
   }, [props]);
 
   const computed_images =
     props.is_album && images ? (
       images.map((image, index) => (
-        <div
-          className={styles.image_ctn}
-          key={image.id}
-          id={`${image.id}-${index}`}
-        >
+        <div className={styles.image_ctn} key={image.id} id={`${index}`}>
           <Image
             src={image.media_url}
             alt={"Image d'album @blandinemakeup34."}
@@ -64,41 +73,65 @@ export default function Carrousel(props: CarrouselPropsI) {
     );
 
   const handleScrollIntoView = (e: any) => {
-    e.preventDefault();
-    e.stopPropagation();
-    const target = document.getElementById(e.target.dataset.id);
-    target?.scrollIntoView({
-      behavior: 'smooth',
-      block: 'center',
-      inline: 'start',
-    });
-    setActiveId(e.target.dataset.id);
+    const container = document.querySelector('#carrousel');
+    if (e.target.dataset.action === 'left' && !e.target.disabled) {
+      container?.scrollBy({
+        top: 0,
+        left: 0 - container.clientWidth,
+        behavior: 'smooth',
+      });
+    }
+    if (e.target.dataset.action === 'right' && !e.target.disabled) {
+      container?.scrollBy({
+        top: 0,
+        left: container.clientWidth,
+        behavior: 'smooth',
+      });
+    }
   };
 
   let link_dots;
   if (Array.isArray(computed_images) && images) {
-    link_dots = images.map((image, index, array) => (
+    link_dots = images.map((image, index) => (
       <button
         className={styles.linked_dot}
-        key={`${image.id}-${index}`}
-        data-id={`${image.id}-${index}`}
-        data-activeid={activeId ? activeId : `${array[0].id}-${0}`}
-        data-isactive={
-          activeId &&
-          images.find((image) => `${image.id}` === activeId.split('-')[0])
-            ? `${image.id}-${index}` === activeId
-            : `${array[0].id}-${0}` === `${image.id}-${index}`
-        }
-        onClick={handleScrollIntoView}
+        key={`${index}`}
+        data-id={`${index}`}
+        data-activeid={activeId ? activeId : 0}
+        data-isactive={activeId === index}
       ></button>
     ));
   }
 
   return (
-    <div className={styles.carrousel}>
+    <div className={styles.carrousel} id="carrousel">
       {computed_images}
       {Array.isArray(computed_images) && images && (
-        <div className={styles.linked_dot_ctn}>{link_dots}</div>
+        <>
+          <div className={styles.linked_dot_ctn}>{link_dots}</div>
+          <>
+            <button
+              className={cN(
+                styles.controller,
+                styles.controller__left,
+                'controller'
+              )}
+              disabled={activeId === 0}
+              data-action="left"
+              onClick={handleScrollIntoView}
+            ></button>
+            <button
+              className={cN(
+                styles.controller,
+                styles.controller__right,
+                'controller'
+              )}
+              disabled={activeId === images.length - 1}
+              data-action="right"
+              onClick={handleScrollIntoView}
+            ></button>
+          </>
+        </>
       )}
     </div>
   );

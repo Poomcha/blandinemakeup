@@ -41,6 +41,11 @@
   flex-direction: column;
 }
 
+.dialog::backdrop {
+  background-color: black;
+  opacity: 0.85;
+}
+
 .close_button {
   display: flex;
   align-items: center;
