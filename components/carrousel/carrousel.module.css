@@ -1,7 +1,7 @@
 .carrousel {
   position: relative;
   width: 80vmin;
-  height: 80vmax;
+  height: 80dvh;
   display: flex;
   flex-wrap: nowrap;
   overflow-x: scroll;
