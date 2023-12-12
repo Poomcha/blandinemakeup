@@ -5,6 +5,10 @@
   overflow-x: hidden;
 }
 
+.portfolio[data-modalopen='true'] {
+  max-height: 100dvh;
+} 
+
 .title {
   width: fit-content;
   margin-top: 12.5px;
@@ -123,7 +127,7 @@
   font-weight: 600;
 }
 
-.filter[data-active="true"] {
+.filter[data-active='true'] {
   background-color: white;
   color: black;
 }

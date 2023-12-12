@@ -21,7 +21,7 @@ const categories = [
   'shooting',
   'backstage',
   'event',
-  'FX',
+  'fx',
 ];
 
 export interface CarrouselPropsI {
@@ -35,6 +35,7 @@ export default function Portfolio() {
   const instagram = useContext(InstagramContext as Context<InstagramI>);
   const wDimensions = useWindowDimensions();
   const imageDimensions = wDimensions.width / 3.1;
+  const [modalOpen, setModalOpen] = useState(false);
 
   let modal: HTMLDialogElement | null;
 
@@ -53,6 +54,7 @@ export default function Portfolio() {
 
   const handleClick = (media: InstagramMediaI) => {
     modal?.showModal();
+    setModalOpen(true);
     if (media.media_type === 'CAROUSEL_ALBUM') {
       setCarrouselProps({
         is_album: true,
@@ -78,6 +80,7 @@ export default function Portfolio() {
       caption: undefined,
     });
     modal?.close();
+    setModalOpen(false);
   };
 
   const gallery = instagram
@@ -129,7 +132,7 @@ export default function Portfolio() {
   };
 
   return (
-    <div className={cN(styles.portfolio, 'page')}>
+    <div className={cN(styles.portfolio, 'page')} data-modalopen={modalOpen}>
       <h1 className={styles.title}>PORTFOLIO</h1>
       <div className={styles.filters_ctn}>
         <button

@@ -93,13 +93,13 @@ export default function Carrousel(props: CarrouselPropsI) {
   let link_dots;
   if (Array.isArray(computed_images) && images) {
     link_dots = images.map((image, index) => (
-      <button
+      <div
         className={styles.linked_dot}
         key={`${index}`}
         data-id={`${index}`}
         data-activeid={activeId ? activeId : 0}
         data-isactive={activeId === index}
-      ></button>
+      ></div>
     ));
   }
 
