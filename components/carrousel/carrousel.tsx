@@ -108,13 +108,16 @@ export default function Carrousel(props: CarrouselPropsI) {
       {computed_images}
       {Array.isArray(computed_images) && images && (
         <>
-          <div className={styles.linked_dot_ctn}>{link_dots}</div>
+          <div className={cN(styles.linked_dot_ctn, 'glassmorphism')}>
+            {link_dots}
+          </div>
           <>
             <button
               className={cN(
                 styles.controller,
                 styles.controller__left,
-                'controller'
+                'controller',
+                'glassmorphism'
               )}
               disabled={activeId === 0}
               data-action="left"
@@ -124,7 +127,8 @@ export default function Carrousel(props: CarrouselPropsI) {
               className={cN(
                 styles.controller,
                 styles.controller__right,
-                'controller'
+                'controller',
+                'glassmorphism'
               )}
               disabled={activeId === images.length - 1}
               data-action="right"

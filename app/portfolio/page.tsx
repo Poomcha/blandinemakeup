@@ -11,14 +11,16 @@ import { Context, useContext, useEffect, useState } from 'react';
 import cN from 'classnames';
 import useWindowDimensions from '@/hooks/useWindowDimensions';
 import Carrousel from '@/components/carrousel/carrousel';
+import React from 'react';
 
 const categories = [
-  'beauté',
-  'artistique',
+  'tout',
+  'beauty',
+  'artistic',
   'tournage',
   'shooting',
   'backstage',
-  'évênements',
+  'event',
   'FX',
 ];
 
@@ -35,6 +37,8 @@ export default function Portfolio() {
   const imageDimensions = wDimensions.width / 3.1;
 
   let modal: HTMLDialogElement | null;
+
+  const [activeCategory, setActiveCategory] = useState('tout');
 
   useEffect(() => {
     modal = document.querySelector('dialog');
@@ -79,6 +83,11 @@ export default function Portfolio() {
   const gallery = instagram
     ? instagram.data
         .filter((media) => media.media_type !== 'VIDEO')
+        .filter((media) =>
+          activeCategory === 'tout'
+            ? media
+            : media.caption?.includes(activeCategory)
+        )
         .map((media) => (
           <div className={styles.image_ctn} key={media.id}>
             <Image
@@ -97,13 +106,77 @@ export default function Portfolio() {
         ))
     : [];
 
+  const handleScrollBy = (e: any) => {
+    const container = document.querySelector('#filters_scroll');
+    if (e.target.dataset.action === 'left') {
+      container?.scrollBy({
+        top: 0,
+        left: 0 - container.clientWidth / 1.5,
+        behavior: 'smooth',
+      });
+    }
+    if (e.target.dataset.action === 'right') {
+      container?.scrollBy({
+        top: 0,
+        left: container.clientWidth / 1.5,
+        behavior: 'smooth',
+      });
+    }
+  };
+
+  const handleFilter = (e: any) => {
+    setActiveCategory(e.target.dataset.category);
+  };
+
   return (
     <div className={cN(styles.portfolio, 'page')}>
       <h1 className={styles.title}>PORTFOLIO</h1>
+      <div className={styles.filters_ctn}>
+        <button
+          className={cN(
+            styles.controller,
+            styles.controller__left,
+            'controller',
+            'glassmorphism'
+          )}
+          data-action="left"
+          onClick={handleScrollBy}
+        ></button>
+        <button
+          className={cN(
+            styles.controller,
+            styles.controller__right,
+            'controller',
+            'glassmorphism'
+          )}
+          data-action="right"
+          onClick={handleScrollBy}
+        ></button>
+        <div className={styles.filters_hint}>
+          <div className={styles.filters_overflow} id="filters_scroll">
+            {categories.map((category, index) => (
+              <React.Fragment key={category + index}>
+                <a
+                  className={styles.filter}
+                  data-category={category}
+                  data-active={activeCategory === category}
+                  onClick={handleFilter}
+                >
+                  {category.toUpperCase()}
+                </a>
+                {index < categories.length - 1 && <div>|</div>}
+              </React.Fragment>
+            ))}
+          </div>
+        </div>
+      </div>
       <section className={styles.gallery}>{gallery}</section>
       <dialog className={styles.dialog}>
-        <button className={styles.close_button} onClick={handleClose}>
-          <Image src="/icons/close.svg" alt="Fermer" width={15} height={15} />
+        <button
+          className={cN(styles.close_button, 'glassmorphism')}
+          onClick={handleClose}
+        >
+          <Image src="/icons/close.svg" alt="Fermer" width={20} height={20} />
         </button>
         <Carrousel
           is_album={carrousel_props.is_album}

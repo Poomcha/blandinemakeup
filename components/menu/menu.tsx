@@ -44,16 +44,16 @@ export default function Menu() {
           <Image
             src="/icons/close.svg"
             alt="close"
-            width={15}
-            height={15}
+            width={40}
+            height={40}
             className={styles.menu__button__icon}
           />
         ) : (
           <Image
             src="/icons/menu.svg"
             alt="menu"
-            width={15}
-            height={15}
+            width={40}
+            height={40}
             className={styles.menu__button__icon}
           />
         )}
