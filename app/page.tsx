@@ -33,14 +33,14 @@ export default function Home() {
         </h1>
         <article className={styles.introduction}>
           Passionnée par le maquillage et le monde de la beauté depuis mon plus
-          jeune âge, j’ai fait de ma passion mon métier.
-          <br /> J'ai commencé par une formation d’esthétique, basée
+          jeune âge, j&apos;ai fait de ma passion mon métier.
+          <br /> J'ai commencé par une formation d&apos;esthétique, basée
           principalement sur la beauté : maquillage jour, soirée, mariage.
           <br />
-          Intégré une école de maquillage pour élargir mes
-          compétences, découvert le milieu de la scène comme le théâtre ou
-          l’opéra, l’artistique avec les body et face painting, le cinéma avec
-          les tournages et la photographie.
+          Intégré une école de maquillage pour élargir mes compétences,
+          découvert le milieu de la scène comme le théâtre ou l&apos;opéra,
+          l&apos;artistique avec les body et face painting, le cinéma avec les
+          tournages et la photographie.
           <br /> Je travaille depuis pour des tournages, courts, moyens et longs
           métrages, clips, shootings photos, spectacles et événements variés.
           <br />
@@ -50,8 +50,8 @@ export default function Home() {
               action={() => {}}
               href={'/realisations'}
               name="réalisations"
-            ></LinkComponent>
-            {' '}!
+            ></LinkComponent>{' '}
+            !
           </span>
         </article>
         <div className={styles.links}>
