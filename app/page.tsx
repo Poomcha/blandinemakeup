@@ -26,9 +26,13 @@ export default function Home() {
         )}
       </div>
       <section className={styles.section}>
-        <h1 className={styles.title}>TITRE</h1>
+        <h1 className={styles.title}>
+          Blandine Degenève
+          <br />
+          Makeup Artist
+        </h1>
         <article className={styles.introduction}>
-          <span className={styles.temp}>DESCRIPTION</span>
+          <span className={styles.temp}></span>
         </article>
         <div className={styles.links}>
           <div className={styles.cards}>

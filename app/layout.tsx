@@ -3,6 +3,7 @@ import PageProvider from '../context/pages';
 import Menu from '@/components/menu/menu';
 import { Metadata } from 'next';
 import InstagramProvider from '@/context/instagram';
+import { Analytics } from '@vercel/analytics/react';
 
 export const metadata: Metadata = {
   title: '',
@@ -24,6 +25,7 @@ export default async function RootLayout({
                 <Menu />
               </header>
               <main>{children}</main>
+              <Analytics />
             </body>
           </PageProvider>
         </InstagramProvider>
