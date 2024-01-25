@@ -1,10 +1,11 @@
 .menu {
   position: absolute;
-  height: 100vh;
+  height: 100dvh;
   width: 100vw;
   padding: 60px;
   transition: transform 600ms ease;
   z-index: 1;
+  background-color: black;
 }
 
 .showMenu {
@@ -21,6 +22,7 @@
   top: 10px;
   left: 10px;
   display: flex;
+  background-color: black;
 }
 
 .menu__button__icon {

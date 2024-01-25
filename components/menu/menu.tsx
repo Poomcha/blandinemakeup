@@ -1,29 +1,34 @@
-'use client';
+"use client";
 
-import styles from './menu.module.css';
-import { useContext, useState } from 'react';
-import { PagesContext, PagesContextI, PagesI } from '@/context/pages';
-import LinkComponent from '../link/link';
-import Image from 'next/image';
-import cN from 'classnames';
+import styles from "./menu.module.css";
+import { useState } from "react";
+import LinkComponent from "../link/link";
+import Image from "next/image";
+import cN from "classnames";
 
 export default function Menu() {
-  const { pages } = useContext(PagesContext) as PagesContextI<PagesI>;
-
   const [showMenu, setShowMenu] = useState(false);
 
   const closeMenu = () => {
     setShowMenu(false);
   };
 
-  const links = pages.names.map((name) => (
+  const navigationLinks = [
+    "accueil",
+    "portfolio",
+    "realisations",
+    "prestations",
+    "contact",
+  ];
+
+  const links = navigationLinks.map((name) => (
     <li key={name} className={styles.menu__links__link}>
       <LinkComponent
         action={closeMenu}
         href={
-          ['portfolio', 'contact', 'prestations'].includes(name)
+          ["portfolio", "contact", "prestations", "realisations"].includes(name)
             ? `/${name}`
-            : '/'
+            : "/"
         }
         name={name}
       ></LinkComponent>
@@ -37,7 +42,7 @@ export default function Menu() {
   return (
     <>
       <button
-        className={cN(styles.menu__button, 'glassmorphism', 'rounded')}
+        className={cN(styles.menu__button, "rounded")}
         onClick={handleMenu}
       >
         {showMenu ? (
@@ -59,14 +64,10 @@ export default function Menu() {
         )}
       </button>
       <nav
-        className={cN(
-          styles.menu,
-          {
-            [styles.showMenu]: showMenu,
-            [styles.hideMenu]: !showMenu,
-          },
-          'glassmorphism'
-        )}
+        className={cN(styles.menu, {
+          [styles.showMenu]: showMenu,
+          [styles.hideMenu]: !showMenu,
+        })}
       >
         <ul className={styles.menu__links}>{links}</ul>
       </nav>

@@ -1,5 +1,4 @@
 import './globals.css';
-import PageProvider from '../context/pages';
 import Menu from '@/components/menu/menu';
 import { Metadata } from 'next';
 import InstagramProvider from '@/context/instagram';
@@ -20,7 +19,6 @@ export default async function RootLayout({
     <>
       <html lang="fr">
         <InstagramProvider>
-          <PageProvider>
             <body>
               <header>
                 <Menu />
@@ -29,7 +27,6 @@ export default async function RootLayout({
               <Analytics />
               <SpeedInsights />
             </body>
-          </PageProvider>
         </InstagramProvider>
       </html>
     </>
