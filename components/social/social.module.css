@@ -1,14 +1,10 @@
-.social {
+.root {
   width: fit-content;
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  padding: 5px;
-  position: absolute;
-  bottom: 10px;
+  height: fit-content;
+  gap: var(--gap-s);
+  align-items: center;
 }
-
 .icon {
-  width: 40px;
-  height: 40px;
+  width: 2rem;
+  height: 2rem;
 }

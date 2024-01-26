@@ -1,75 +1,30 @@
-.home {
-  flex-direction: column;
+.root {
+  gap: var(--gap-s);
 }
 .imgctn {
-  width: 100vw;
   height: calc(2 * 100vh / 5);
-  position: relative;
 }
-
-.image {
-  margin: auto;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-
 .section {
-  width: 100vw;
-  height: calc(3 * 100vh / 5);
-  display: flex;
-  flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  padding: 20px;
+  padding: 0 var(--p-s);
+  gap: var(--gap-m);
 }
 .title {
-  width: 100%;
   text-align: center;
+  font-size: var(--font-h1);
 }
-.introduction {
-  width: 100%;
-  height: 22%;
-  display: flex;
-  /* for testing purposes */
-  border: 2px solid rgb(162, 207, 38);
+.article {
+  gap: var(--gap-s);
 }
 .links {
-  width: 100%;
-  height: 22%;
-  /* for testing purposes */
-  border: 2px solid rgb(207, 38, 52);
-  display: flex;
-  justify-content: space-between;
-}
-.cards {
-  height: 100%;
-  width: 45%;
-  display: flex;
-  /* for testing purposes */
-  border: 2px solid rgb(158, 187, 193);
+  justify-content: space-evenly;
 }
 .contacts {
-  width: 100%;
-  height: 22%;
-  display: flex;
-  justify-content: center;
-  /* for testing purposes */
-  /* border: 2px solid rgb(232, 133, 201); */
+  margin-bottom: var(--m-s);
 }
-.contacticon {
-  width: 25%;
-  display: flex;
-  /* for testing purposes */
-  border: 2px solid rgb(76, 47, 164);
-}
-.temp {
-  margin: auto;
-}
-
-@media screen and (min-width: 600px) {
-  .home {
+@media screen and (min-width: 900px) {
+  .root {
     flex-direction: row;
   }
   .imgctn {

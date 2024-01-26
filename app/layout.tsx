@@ -1,14 +1,17 @@
-import './globals.css';
-import Menu from '@/components/menu/menu';
-import { Metadata } from 'next';
-import InstagramProvider from '@/context/instagram';
-import { Analytics } from '@vercel/analytics/react';
-import { SpeedInsights } from '@vercel/speed-insights/next';
+import "./globals.css";
+import Menu from "@/components/menu/menu";
+import InstagramProvider from "@/context/instagram";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Patrick_Hand_SC, Sono } from "next/font/google";
 
-export const metadata: Metadata = {
-  title: '',
-  description: '',
-};
+export const patrick_hand_sc = Patrick_Hand_SC({
+  weight: "400",
+  subsets: ["latin"],
+});
+
+const sono = Sono({ subsets: ["latin"] });
+
 
 export default async function RootLayout({
   children,
@@ -19,14 +22,14 @@ export default async function RootLayout({
     <>
       <html lang="fr">
         <InstagramProvider>
-            <body>
-              <header>
-                <Menu />
-              </header>
-              <main>{children}</main>
-              <Analytics />
-              <SpeedInsights />
-            </body>
+          <body className={sono.className}>
+            <header>
+              <Menu />
+            </header>
+            <main>{children}</main>
+            <Analytics />
+            <SpeedInsights />
+          </body>
         </InstagramProvider>
       </html>
     </>

@@ -5,6 +5,7 @@ import { useState } from "react";
 import LinkComponent from "../link/link";
 import Image from "next/image";
 import cN from "classnames";
+import { patrick_hand_sc } from "@/app/layout";
 
 export default function Menu() {
   const [showMenu, setShowMenu] = useState(false);
@@ -22,7 +23,7 @@ export default function Menu() {
   ];
 
   const links = navigationLinks.map((name) => (
-    <li key={name} className={styles.menu__links__link}>
+    <li key={name}>
       <LinkComponent
         action={closeMenu}
         href={
@@ -42,7 +43,15 @@ export default function Menu() {
   return (
     <>
       <button
-        className={cN(styles.menu__button, "rounded")}
+        className={cN(
+          styles.button,
+          "button",
+          "bg-black",
+          "rounded",
+          "p-absolute",
+          "flex",
+          "flex-center"
+        )}
         onClick={handleMenu}
       >
         {showMenu ? (
@@ -51,7 +60,7 @@ export default function Menu() {
             alt="close"
             width={40}
             height={40}
-            className={styles.menu__button__icon}
+            className={styles.button__icon}
           />
         ) : (
           <Image
@@ -59,17 +68,34 @@ export default function Menu() {
             alt="menu"
             width={40}
             height={40}
-            className={styles.menu__button__icon}
+            className={styles.button__icon}
           />
         )}
       </button>
       <nav
-        className={cN(styles.menu, {
-          [styles.showMenu]: showMenu,
-          [styles.hideMenu]: !showMenu,
-        })}
+        className={cN(
+          styles.root,
+          patrick_hand_sc.className,
+          "p-absolute",
+          "bg-black",
+          "fullscreen",
+          {
+            [styles.showMenu]: showMenu,
+            [styles.hideMenu]: !showMenu,
+          }
+        )}
       >
-        <ul className={styles.menu__links}>{links}</ul>
+        <ul
+          className={cN(
+            styles.links,
+            "flex",
+            "flex-column",
+            "flex-center",
+            "fullscreen"
+          )}
+        >
+          {links}
+        </ul>
       </nav>
     </>
   );

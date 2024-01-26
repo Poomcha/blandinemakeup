@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
+import cN from "classnames";
 
 interface PropsI {
   action?: () => void;
@@ -26,16 +27,23 @@ export default function LinkComponent({ action, href, name, openNew }: PropsI) {
       href={href}
       id={name}
       target={openNew ? "_blank" : "_self"}
-      className={"link"}
+      className={cN("flex", "flex-center")}
     >
-      <span className={"text"}>{name.toUpperCase()}</span>
+      <span>
+        {name === "realisations"
+          ? "réalisations".toUpperCase()
+          : name.toUpperCase()}
+      </span>
       {isActive && (
-        <Image
-          src={"/icons/hint.svg"}
-          alt="Lien actif."
-          width={20}
-          height={20}
-        ></Image>
+        <div className={cN("flex")}>
+          <Image
+            src={"/icons/hint.svg"}
+            alt="Lien actif."
+            width={20}
+            height={20}
+            className={cN("margin-auto")}
+          ></Image>
+        </div>
       )}
     </Link>
   );
