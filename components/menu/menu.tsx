@@ -5,7 +5,7 @@ import { useState } from "react";
 import LinkComponent from "../link/link";
 import Image from "next/image";
 import cN from "classnames";
-import { patrick_hand_sc } from "@/app/layout";
+import { patrick_hand_sc } from "@/app/font";
 
 export default function Menu() {
   const [showMenu, setShowMenu] = useState(false);

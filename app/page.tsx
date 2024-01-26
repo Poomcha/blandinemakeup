@@ -8,7 +8,7 @@ import { InstagramContext, InstagramI } from "@/context/instagram";
 import { get_media_by_hashtag } from "./utils/instagram";
 import Image from "next/image";
 import Social from "@/components/social/social";
-import { patrick_hand_sc } from "./layout";
+import { patrick_hand_sc } from "./font";
 
 export default function Home() {
   const instagram = useContext(InstagramContext as Context<InstagramI>);
