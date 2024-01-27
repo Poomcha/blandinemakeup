@@ -24,13 +24,13 @@
   padding: var(--p-xs) var(--p-s);
 }
 .caption {
-  font-size: 1.5rem;
+  font-size: var(--font-l);
 }
-@media screen and (min-width: 600px) {
+/* @media screen and (min-width: 600px) {
   .caption {
     font-size: 1.75rem;
   }
-}
+} */
 @media screen and (min-width: 900px) {
   .root {
     flex-direction: row;

@@ -1,5 +1,7 @@
 "use client";
 
+import styles from "./link.module.css";
+
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
@@ -29,7 +31,7 @@ export default function LinkComponent({ action, href, name, openNew }: PropsI) {
       target={openNew ? "_blank" : "_self"}
       className={cN("flex", "flex-center")}
     >
-      <span>
+      <span className={styles.link__text}>
         {name === "realisations"
           ? "réalisations".toUpperCase()
           : name.toUpperCase()}

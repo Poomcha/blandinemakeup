@@ -15,8 +15,8 @@
   --m-m: var(--gap-m);
   --m-l: var(--gap-l);
   --font-s: 1rem;
-  --font-m: 1rem;
-  --font-l: 1.2rem;
+  --font-m: 1.25rem;
+  --font-l: 1.5rem;
   --font-h1: 2.5rem;
   --font-h2: 1.75rem;
 }
@@ -153,6 +153,6 @@ button {
 }
 @media screen and (min-width: 600px) {
   * {
-    font-size: var(--font-l);
+    font-size: var(--font-m);
   }
 }

@@ -26,7 +26,7 @@ export default function Prestations() {
           <caption
             className={cN("w-100pr", patrick_hand_sc.className, styles.caption)}
           >
-            Beauté
+            BEAUTÉ
           </caption>
           <tbody>
             <tr>
@@ -49,7 +49,7 @@ export default function Prestations() {
           <caption
             className={cN("w-100pr", patrick_hand_sc.className, styles.caption)}
           >
-            Artistique
+            ARTISTIQUE
           </caption>
           <tbody>
             <tr>
@@ -63,7 +63,7 @@ export default function Prestations() {
           <caption
             className={cN("w-100pr", patrick_hand_sc.className, styles.caption)}
           >
-            Enfant
+            ENFANT
           </caption>
           <tbody>
             <tr>
@@ -77,7 +77,7 @@ export default function Prestations() {
           <caption
             className={cN("w-100pr", patrick_hand_sc.className, styles.caption)}
           >
-            Mariage
+            MARIAGE
           </caption>
           <tbody>
             <tr>
@@ -104,7 +104,7 @@ export default function Prestations() {
           <caption
             className={cN("w-100pr", patrick_hand_sc.className, styles.caption)}
           >
-            Shooting
+            SHOOTING
           </caption>
           <tbody>
             <tr>
@@ -127,7 +127,7 @@ export default function Prestations() {
           <caption
             className={cN("w-100pr", patrick_hand_sc.className, styles.caption)}
           >
-            Tournage
+            TOURNAGE
           </caption>
           <tbody>
             <tr>
@@ -141,7 +141,7 @@ export default function Prestations() {
           <caption
             className={cN("w-100pr", patrick_hand_sc.className, styles.caption)}
           >
-            Évênement
+            ÉVÊNEMENT
           </caption>
           <tbody>
             <tr>
