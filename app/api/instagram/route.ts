@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server';
+  import { NextResponse } from 'next/server';
 
 export async function GET(req: Request) {
   const fields = [
@@ -17,7 +17,7 @@ export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
   const id = searchParams.get('id');
   if (id) {
-    const url = `${process.env.INSTAGRAM_URL}/${id}/children?fields=id,media_url&access_token=${process.env.INSTAGRAM_TOKEN}`;
+    const url = `${process.env.INSTAGRAM_URL}/${id}/children?fields=id,media_url,media_type&access_token=${process.env.INSTAGRAM_TOKEN}`;
     const res = await fetch(url);
     const raw_data = await res.json();
 

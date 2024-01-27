@@ -76,7 +76,6 @@ export default function Menu() {
         className={cN(
           styles.root,
           patrick_hand_sc.className,
-          "p-absolute",
           "bg-black",
           "fullscreen",
           {

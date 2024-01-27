@@ -1,5 +1,6 @@
 .root {
   transition: transform 1s ease;
+  position: fixed;
   z-index: 1;
 }
 .showMenu {
@@ -9,9 +10,10 @@
   transform: translate3d(0, -100dvh, 0);
 }
 .button {
+  position: fixed;
   z-index: 2;
-  top: 10px;
-  left: 10px;
+  top: var(--gap-s);
+  left: var(--gap-s);
 }
 .button__icon {
   width: 2rem;

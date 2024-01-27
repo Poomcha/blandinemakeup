@@ -1,91 +1,76 @@
-.carrousel {
-  position: relative;
+.root {
   width: 80vmin;
   height: 80dvh;
-  display: flex;
   flex-wrap: nowrap;
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
   scrollbar-width: 0;
 }
-
-.carrousel::-webkit-scrollbar {
+.root::-webkit-scrollbar {
   display: none;
 }
-
 .image_ctn {
-  position: relative;
-  width: 100%;
   min-width: 100%;
   scroll-snap-align: start;
   background-color: rgb(49, 49, 49);
 }
-
 .image {
-  width: 100%;
   height: auto;
   object-fit: cover;
   object-position: center;
-  cursor: pointer;
 }
-
+.video {
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+}
 .linked_dot_ctn {
   position: fixed;
-  bottom: 0.5rem;
+  bottom: var(--gap-xs);
   left: 50%;
   transform: translateX(-50%);
-  width: 40px;
-  height: 20px;
-  display: flex;
+  width: var(--gap-l);
+  height: var(--gap-m);
   justify-content: space-evenly;
   align-items: center;
-  border-radius: 5px;
 }
-
 .linked_dot {
-  position: relative;
   display: block;
-  width: 5px;
-  height: 4px;
-  border-radius: 2.5px;
+  width: var(--gap-xs);
+  height: calc(var(--gap-xs) / 2);
+  border-radius: calc(var(--gap-xs) / 2);
   background: white;
   transition: width 166ms ease-out;
 }
-
-.linked_dot[data-isactive='true'] {
-  width: 10px;
+.linked_dot[data-isactive="true"] {
+  width: var(--gap-s);
 }
-
 .controller {
-  width: 20px;
-  height: 20px;
   position: fixed;
-  bottom: 0.5rem;
-  border-radius: 100%;
+  width: var(--gap-m);
+  height: var(--gap-m);
+  bottom: var(--gap-xs);
   transition: opacity 166ms ease-out;
+  background-color: black;
 }
-
 .controller::after {
-  content: ' ';
+  content: " ";
   display: block;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 12px;
-  height: 12px;
-  background: url('/icons/chevron.svg') no-repeat center;
+  width: 20px;
+  height: 20px;
+  background: url("/icons/chevron.svg") no-repeat center;
 }
-
 .controller__left {
-  left: 0.5rem;
+  left: var(--gap-s);
   transform: rotate(180deg);
 }
-
 .controller__right {
-  right: 0.5rem;
+  right: var(--gap-s);
 }
-
 .controller:disabled {
-  opacity: 0.45;
+  opacity: 0.25;
 }

@@ -36,17 +36,21 @@ export default function Home() {
         >
           <p>
             {`Passionnée par le maquillage et le monde de la beauté depuis mon plus
-jeune âge, j'ai fait de ma passion mon métier. J'ai commencé par
-une formation d'esthétique, basée principalement sur la beauté :
+jeune âge, j'ai fait de ma passion mon métier.`}
+          </p>
+          <p>
+            {`J'ai commencé par une formation d'esthétique, basée principalement sur la beauté :
 maquillage jour, soirée, mariage. Intégré une école de maquillage pour
 élargir mes compétences, découvert le milieu de la scène comme le
 théâtre ou l'opéra, l'artistique avec les body et face
-painting, le cinéma avec les tournages et la photographie. Je
-travaille depuis pour des tournages, courts, moyens et longs métrages,
+painting, le cinéma avec les tournages et la photographie.`}
+          </p>
+          <p>
+            {`Je travaille depuis pour des tournages, courts, moyens et longs métrages,
 clips, shootings photos, spectacles et événements variés.`}
           </p>
           <p>
-            Décrouvir mes <a href="/realisations">RÉALISATIONS</a> !
+            Décrouvrez mes <a href="/realisations">RÉALISATIONS</a> !
           </p>
         </article>
         <div className={cN("flex", "w-100pr", styles.links)}>

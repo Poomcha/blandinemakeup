@@ -1,27 +1,35 @@
-'use client';
+"use client";
 
-import styles from './portfolio.module.css';
+import styles from "./portfolio.module.css";
 import {
   InstagramContext,
   InstagramI,
   InstagramMediaI,
-} from '@/context/instagram';
-import Image from 'next/image';
-import { Context, useContext, useEffect, useState } from 'react';
-import cN from 'classnames';
-import useWindowDimensions from '@/hooks/useWindowDimensions';
-import Carrousel from '@/components/carrousel/carrousel';
-import React from 'react';
+} from "@/context/instagram";
+import Image from "next/image";
+import {
+  Context,
+  useContext,
+  useEffect,
+  useState,
+  useRef,
+  BaseSyntheticEvent,
+} from "react";
+import cN from "classnames";
+import useWindowDimensions from "@/hooks/useWindowDimensions";
+import Carrousel from "@/components/carrousel/carrousel";
+import React from "react";
+import { patrick_hand_sc } from "../font";
 
 const categories = [
-  'tout',
-  'beauty',
-  'artistic',
-  'tournage',
-  'shooting',
-  'backstage',
-  'event',
-  'fx',
+  "tout",
+  "beauty",
+  "artistic",
+  "tournage",
+  "shooting",
+  "backstage",
+  "event",
+  "fx",
 ];
 
 export interface CarrouselPropsI {
@@ -34,16 +42,13 @@ export interface CarrouselPropsI {
 export default function Portfolio() {
   const instagram = useContext(InstagramContext as Context<InstagramI>);
   const wDimensions = useWindowDimensions();
-  const imageDimensions = wDimensions.width / 3.1;
+  const imageDimensions = wDimensions.width / 3.16;
   const [modalOpen, setModalOpen] = useState(false);
 
-  let modal: HTMLDialogElement | null;
+  const modalRef = useRef<HTMLDialogElement>(null);
+  const filtersContainerRef = useRef<HTMLDivElement>(null);
 
-  const [activeCategory, setActiveCategory] = useState('tout');
-
-  useEffect(() => {
-    modal = document.querySelector('dialog');
-  });
+  const [activeCategory, setActiveCategory] = useState("tout");
 
   const [carrousel_props, setCarrouselProps] = useState({
     is_album: false,
@@ -53,9 +58,9 @@ export default function Portfolio() {
   } as CarrouselPropsI);
 
   const handleClick = (media: InstagramMediaI) => {
-    modal?.showModal();
+    modalRef.current?.showModal();
     setModalOpen(true);
-    if (media.media_type === 'CAROUSEL_ALBUM') {
+    if (media.media_type === "CAROUSEL_ALBUM") {
       setCarrouselProps({
         is_album: true,
         id: media.id,
@@ -79,104 +84,118 @@ export default function Portfolio() {
       url: undefined,
       caption: undefined,
     });
-    modal?.close();
+    modalRef.current?.close();
     setModalOpen(false);
   };
 
   const gallery = instagram
     ? instagram.data
-        .filter((media) => media.media_type !== 'VIDEO')
+        .filter((media) => media.media_type !== "VIDEO")
         .filter((media) =>
-          activeCategory === 'tout'
+          activeCategory === "tout"
             ? media
-            : media.caption?.includes(activeCategory)
+            : media.caption?.includes(`#${activeCategory.toLowerCase()}`)
         )
         .map((media) => (
-          <div className={styles.image_ctn} key={media.id}>
+          <div
+            className={cN(styles.image_ctn, "p-relative", "flex")}
+            key={media.id}
+          >
             <Image
               src={media.media_url}
               alt={
                 media.caption
                   ? media.caption
-                  : 'Image aléatoire de @blandinemakeup34.'
+                  : "Image aléatoire de @blandinemakeup34."
               }
               width={imageDimensions}
               height={imageDimensions}
-              className={styles.image}
+              className={cN(styles.image)}
               onClick={() => handleClick(media)}
             />
+            {media.media_type === "CAROUSEL_ALBUM" && (
+              <div
+                onClick={() => handleClick(media)}
+                className={cN("p-absolute", styles.albumHint)}
+              ></div>
+            )}
           </div>
         ))
     : [];
 
-  const handleScrollBy = (e: any) => {
-    const container = document.querySelector('#filters_scroll');
-    if (e.target.dataset.action === 'left') {
+  const handleScrollBy = (e: BaseSyntheticEvent) => {
+    const container = filtersContainerRef.current;
+    if (e.target.dataset.action === "left") {
       container?.scrollBy({
         top: 0,
         left: 0 - container.clientWidth / 1.5,
-        behavior: 'smooth',
+        behavior: "smooth",
       });
     }
-    if (e.target.dataset.action === 'right') {
+    if (e.target.dataset.action === "right") {
       container?.scrollBy({
         top: 0,
         left: container.clientWidth / 1.5,
-        behavior: 'smooth',
+        behavior: "smooth",
       });
     }
   };
 
-  const handleFilter = (e: any) => {
+  const handleFilter = (e: BaseSyntheticEvent) => {
     setActiveCategory(e.target.dataset.category);
   };
 
   return (
-    <div className={cN(styles.portfolio, 'page')} data-modalopen={modalOpen}>
-      <h1 className={styles.title}>PORTFOLIO</h1>
-      <div className={styles.filters_ctn}>
+    <div
+      className={cN(styles.root, "page", "flex", "flex-column", "h-100dvh")}
+      data-modalopen={modalOpen}
+    >
+      <h1 className={cN(styles.title, patrick_hand_sc.className)}>PORTFOLIO</h1>
+      <div className={cN(styles.filters_ctn, "p-relative", "flex")}>
         <button
-          className={cN(
-            styles.controller,
-            styles.controller__left,
-            'controller',
-            'glassmorphism'
-          )}
+          className={cN(styles.controller, styles.controller__left)}
           data-action="left"
           onClick={handleScrollBy}
         ></button>
         <button
-          className={cN(
-            styles.controller,
-            styles.controller__right,
-            'controller',
-            'glassmorphism'
-          )}
+          className={cN(styles.controller, styles.controller__right)}
           data-action="right"
           onClick={handleScrollBy}
         ></button>
         <div className={styles.filters_hint}>
-          <div className={styles.filters_overflow} id="filters_scroll">
+          <div
+            className={cN(styles.filters_overflow, "flex", "flex-row")}
+            ref={filtersContainerRef}
+          >
             {categories.map((category, index) => (
               <React.Fragment key={category + index}>
                 <a
-                  className={styles.filter}
+                  className={cN(styles.filter, "rounded")}
                   data-category={category}
                   data-active={activeCategory === category}
                   onClick={handleFilter}
                 >
                   {category.toUpperCase()}
                 </a>
-                {index < categories.length - 1 && <div>|</div>}
               </React.Fragment>
             ))}
           </div>
         </div>
       </div>
-      <section className={styles.gallery}>{gallery}</section>
-      <dialog className={styles.dialog}>
+      <section className={cN(styles.gallery, "flex")}>{gallery}</section>
+      <dialog
+        className={cN(styles.dialog, "rounded", "white-border")}
+        ref={modalRef}
+      >
         <button
-          className={cN(styles.close_button, 'glassmorphism')}
+          className={cN(
+            styles.close_button,
+            "button",
+            "flex",
+            "flex-center",
+            "rounded",
+            "white-border"
+          )}
           onClick={handleClose}
         >
           <Image src="/icons/close.svg" alt="Fermer" width={20} height={20} />

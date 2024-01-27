@@ -39,8 +39,8 @@ export default function LinkComponent({ action, href, name, openNew }: PropsI) {
           <Image
             src={"/icons/hint.svg"}
             alt="Lien actif."
-            width={20}
-            height={20}
+            width={40}
+            height={40}
             className={cN("margin-auto")}
           ></Image>
         </div>

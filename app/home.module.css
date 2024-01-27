@@ -29,10 +29,12 @@
   }
   .imgctn {
     width: calc(2 * 100vw / 5);
+    position: fixed;
     height: 100vh;
   }
   .section {
     width: calc(3 * 100vw / 5);
-    height: 100vh;
+    margin-left: auto;
+    padding: var(--p-l);
   }
 }
