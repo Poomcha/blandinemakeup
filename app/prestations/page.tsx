@@ -1,64 +1,154 @@
-import styles from './prestation.module.css';
+import styles from "./prestation.module.css";
+
+import cN from "classnames";
+import { patrick_hand_sc } from "../font";
 
 export default function Prestations() {
   return (
-    <section>
-      <h1>Prestations</h1>
-      <ul>
-        <li>
-          <h2>Maquillage Beauté</h2>
-          <ul>
-            <li>
-              <span>Jour: 40€</span>
-            </li>
-            <li>
-              <span>Soirée</span>
-              <ul>
-                <li>Classique: 60€</li>
-                <li>Faux cils: 15€</li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <h2>Maquillage Artistique</h2>
-          <span>Prestation sur devis</span>
-        </li>
-        <li>
-          <h2>Maquillage Enfant</h2>
-          <span>Prestation sur devis</span>
-        </li>
-        <li>
-          <h2>Maquillage Mariage</h2>
-          <ul>
-            <li>Essai maquillage (recommandé): Prestation sur devis</li>
-            <li>Maquillage Jour J (sans essai): Prestation sur devis</li>
-            <li>Maquillage Jour J (avec essai): Prestation sur devis</li>
-            <li>Maquillage Invités: Prestation sur devis</li>
-          </ul>
-        </li>
-        <li>
-          <h2>Shooting</h2>
-          <ul>
-            <li>Entre 2h et 4h: Prestation sur devis</li>
-            <li>Entre 4h et 6h: Prestation sur devis</li>
-            <li>Entre 6h et 8h: Prestation sur devis</li>
-          </ul>
-        </li>
-        <li>
-          <h2>Tournage</h2>
-          <span>Prestation sur devis</span>
-        </li>
-        <li>
-          <h2>Evênements</h2>
-          <ul>
-            <li>Festival: Prestation sur devis</li>
-            <li>Anniversaire: Prestation sur devis</li>
-            <li>EVJ ou EVG: Prestation sur devis</li>
-            <li>Soirée Clubbing: Prestation sur devis</li>
-          </ul>
-        </li>
-      </ul>
-    </section>
+    <div
+      className={cN(styles.root, "page", "flex", "flex-column", "p-relative")}
+    >
+      <h1
+        className={cN(
+          styles.title,
+          "title",
+          patrick_hand_sc.className,
+          "bg-black"
+        )}
+      >
+        PRESTATIONS
+      </h1>
+      <div className={cN(styles.imgctn, "w-100pr", "h-100dvh")}></div>
+      <section className={cN(styles.section, "w-100pr", "flex", "flex-column")}>
+        <table className={cN(styles.table, "w-100pr", "white-border")}>
+          <caption
+            className={cN("w-100pr", patrick_hand_sc.className, styles.caption)}
+          >
+            Beauté
+          </caption>
+          <tbody>
+            <tr>
+              <td className={cN("w-50pr", "text-left")}>Jour</td>
+              <td className={cN("w-50pr", "text-right")}>40€</td>
+            </tr>
+            <tr>
+              <td className={cN("w-50pr", "text-left")}>Soirée</td>
+              <td className={cN("w-50pr", "text-right")}>60€</td>
+            </tr>
+            <tr>
+              <td className={cN("w-50pr", "text-left")}>+ faux cils</td>
+              <td className={cN("w-50pr", "text-right")}>+ 15€</td>
+            </tr>
+          </tbody>
+        </table>
+        <table className={cN(styles.table, "w-100pr", "white-border")}>
+          <caption
+            className={cN("w-100pr", patrick_hand_sc.className, styles.caption)}
+          >
+            Artistique
+          </caption>
+          <tbody>
+            <tr>
+              <td className={cN("w-50pr", "text-center")}>Sur devis</td>
+            </tr>
+          </tbody>
+        </table>
+        <table className={cN(styles.table, "w-100pr", "white-border")}>
+          <caption
+            className={cN("w-100pr", patrick_hand_sc.className, styles.caption)}
+          >
+            Enfant
+          </caption>
+          <tbody>
+            <tr>
+              <td className={cN("w-50pr", "text-center")}>Sur devis</td>
+            </tr>
+          </tbody>
+        </table>
+        <table className={cN(styles.table, "w-100pr", "white-border")}>
+          <caption
+            className={cN("w-100pr", patrick_hand_sc.className, styles.caption)}
+          >
+            Mariage
+          </caption>
+          <tbody>
+            <tr>
+              <td className={cN("w-50pr", "text-left")}>Essais (recommandé)</td>
+              <td className={cN("w-50pr", "text-right")}>Sur devis</td>
+            </tr>
+            <tr>
+              <td className={cN("w-50pr", "text-left")}>Jour J (sans essai)</td>
+              <td className={cN("w-50pr", "text-right")}>Sur devis</td>
+            </tr>
+            <tr>
+              <td className={cN("w-50pr", "text-left")}>Jour J (avec essai)</td>
+              <td className={cN("w-50pr", "text-right")}>Sur devis</td>
+            </tr>
+            <tr>
+              <td className={cN("w-50pr", "text-left")}>Invités</td>
+              <td className={cN("w-50pr", "text-right")}>Sur devis</td>
+            </tr>
+          </tbody>
+        </table>
+        <table className={cN(styles.table, "w-100pr", "white-border")}>
+          <caption
+            className={cN("w-100pr", patrick_hand_sc.className, styles.caption)}
+          >
+            Shooting
+          </caption>
+          <tbody>
+            <tr>
+              <td className={cN("w-50pr", "text-left")}>Entre 2h et 4h</td>
+              <td className={cN("w-50pr", "text-right")}>Sur devis</td>
+            </tr>
+            <tr>
+              <td className={cN("w-50pr", "text-left")}>Entre 4h et 6h</td>
+              <td className={cN("w-50pr", "text-right")}>Sur devis</td>
+            </tr>
+            <tr>
+              <td className={cN("w-50pr", "text-left")}>Entre 6h et 8h</td>
+              <td className={cN("w-50pr", "text-right")}>Sur devis</td>
+            </tr>
+          </tbody>
+        </table>
+        <table className={cN(styles.table, "w-100pr", "white-border")}>
+          <caption
+            className={cN("w-100pr", patrick_hand_sc.className, styles.caption)}
+          >
+            Tournage
+          </caption>
+          <tbody>
+            <tr>
+              <td className={cN("w-50pr", "text-center")}>Sur devis</td>
+            </tr>
+          </tbody>
+        </table>
+        <table className={cN(styles.table, "w-100pr", "white-border")}>
+          <caption
+            className={cN("w-100pr", patrick_hand_sc.className, styles.caption)}
+          >
+            Évênement
+          </caption>
+          <tbody>
+            <tr>
+              <td className={cN("w-50pr", "text-left")}>Festival</td>
+              <td className={cN("w-50pr", "text-right")}>Sur devis</td>
+            </tr>
+            <tr>
+              <td className={cN("w-50pr", "text-left")}>Anniversaire</td>
+              <td className={cN("w-50pr", "text-right")}>Sur devis</td>
+            </tr>
+            <tr>
+              <td className={cN("w-50pr", "text-left")}>EVJF ou EVG</td>
+              <td className={cN("w-50pr", "text-right")}>Sur devis</td>
+            </tr>
+            <tr>
+              <td className={cN("w-50pr", "text-left")}>Clubbing</td>
+              <td className={cN("w-50pr", "text-right")}>Sur devis</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
   );
 }

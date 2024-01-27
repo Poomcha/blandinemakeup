@@ -96,6 +96,9 @@ button {
 .w-100pr {
   width: 100%;
 }
+.w-50pr {
+  width: 50%;
+}
 .fullscreen {
   height: 100dvh;
   width: 100vw;
@@ -133,6 +136,15 @@ button {
 }
 .white-border {
   border: 2px solid white;
+}
+.text-center {
+  text-align: center;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
 }
 @media (prefers-color-scheme: dark) {
   html {

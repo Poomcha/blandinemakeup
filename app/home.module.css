@@ -1,5 +1,4 @@
 .root {
-  gap: var(--gap-s);
 }
 .imgctn {
   height: calc(2 * 100dvh / 5);
@@ -11,7 +10,7 @@
   padding: 0 var(--p-s);
   gap: var(--gap-m);
   overflow-y: scroll;
-  margin-top: calc(2 * 100dvh / 5);
+  margin-top: calc(2 * 100dvh / 5 + var(--gap-m));
   scrollbar-width: 0;
 }
 .section::-webkit-scrollbar {
@@ -37,7 +36,7 @@
   .imgctn {
     width: calc(2 * 100vw / 5);
     position: fixed;
-    height: 100vh;
+    height: 100dvh;
   }
   .section {
     width: calc(3 * 100vw / 5);
