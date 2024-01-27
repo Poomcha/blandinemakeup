@@ -18,6 +18,7 @@
   --font-m: 1rem;
   --font-l: 1.2rem;
   --font-h1: 2.5rem;
+  --font-h2: 1.75rem;
 }
 * {
   box-sizing: border-box;
@@ -44,6 +45,11 @@ a {
 }
 h1 {
   line-height: 2rem;
+  font-size: var(--font-h1);
+}
+h2 {
+  line-height: 1.5rem;
+  font-size: var(--font-h2);
 }
 li {
   list-style-type: none;
@@ -54,7 +60,6 @@ button {
   cursor: pointer;
 }
 .page {
-  display: flex;
   min-height: 100dvh;
   z-index: 0;
   position: relative;
@@ -70,6 +75,11 @@ button {
   height: auto;
   object-fit: cover;
   object-position: center;
+}
+.title {
+  font-size: var(--font-h1);
+  padding: var(--p-s);
+  margin-left: auto;
 }
 .bg-black {
   background-color: black;

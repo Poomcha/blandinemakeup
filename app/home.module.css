@@ -2,13 +2,20 @@
   gap: var(--gap-s);
 }
 .imgctn {
-  height: calc(2 * 100vh / 5);
+  height: calc(2 * 100dvh / 5);
+  position: fixed;
 }
 .section {
   justify-content: space-evenly;
   align-items: center;
   padding: 0 var(--p-s);
   gap: var(--gap-m);
+  overflow-y: scroll;
+  margin-top: calc(2 * 100dvh / 5);
+  scrollbar-width: 0;
+}
+.section::-webkit-scrollbar {
+  display: none;
 }
 .title {
   text-align: center;
@@ -35,6 +42,7 @@
   .section {
     width: calc(3 * 100vw / 5);
     margin-left: auto;
+    margin-top: 0;
     padding: var(--p-l);
   }
 }

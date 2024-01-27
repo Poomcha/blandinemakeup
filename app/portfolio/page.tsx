@@ -150,7 +150,7 @@ export default function Portfolio() {
       className={cN(styles.root, "page", "flex", "flex-column", "h-100dvh")}
       data-modalopen={modalOpen}
     >
-      <h1 className={cN(styles.title, patrick_hand_sc.className)}>PORTFOLIO</h1>
+      <h1 className={cN("title", patrick_hand_sc.className)}>PORTFOLIO</h1>
       <div className={cN(styles.filters_ctn, "p-relative", "flex")}>
         <button
           className={cN(styles.controller, styles.controller__left)}
