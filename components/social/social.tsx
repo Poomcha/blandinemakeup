@@ -12,7 +12,8 @@ export default function Social() {
         "flex",
         "flex-center",
         "rounded",
-        "gradient-border"
+        "gradient-border",
+        "purple-box-shadow"
       )}
     >
       <a

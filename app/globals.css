@@ -21,15 +21,15 @@
   --font-h2: 1.5rem;
   --gradient-purple-45: linear-gradient(
     30deg,
-    rgb(190, 0, 211) 0%,
+    rgb(175, 0, 211) 0%,
     rgba(255, 255, 255, 1) 100%
   );
   --gradient-purple-90: linear-gradient(
     90deg,
-    rgb(190, 0, 215) 0%,
+    rgb(175, 0, 215) 0%,
     rgba(255, 255, 255, 1) 100%
   );
-  --box-shadow-purple: rgba(190, 0, 211, 1);
+  --box-shadow-purple: rgba(175, 0, 211, 1);
 }
 * {
   box-sizing: border-box;

@@ -22,7 +22,13 @@ export default function Prestations() {
       <div className={cN(styles.imgctn, "w-100pr", "h-100dvh")}></div>
       <section className={cN(styles.section, "w-100pr", "flex", "flex-column")}>
         <table
-          className={cN(styles.table, "w-100pr", "gradient-border", "rounded")}
+          className={cN(
+            styles.table,
+            "w-100pr",
+            "gradient-border",
+            "rounded",
+            "purple-box-shadow"
+          )}
         >
           <caption
             className={cN("w-100pr", patrick_hand_sc.className, styles.caption)}
@@ -45,7 +51,13 @@ export default function Prestations() {
           </tbody>
         </table>
         <table
-          className={cN(styles.table, "w-100pr", "gradient-border", "rounded")}
+          className={cN(
+            styles.table,
+            "w-100pr",
+            "gradient-border",
+            "rounded",
+            "purple-box-shadow"
+          )}
         >
           <caption
             className={cN("w-100pr", patrick_hand_sc.className, styles.caption)}
@@ -59,7 +71,13 @@ export default function Prestations() {
           </tbody>
         </table>
         <table
-          className={cN(styles.table, "w-100pr", "gradient-border", "rounded")}
+          className={cN(
+            styles.table,
+            "w-100pr",
+            "gradient-border",
+            "rounded",
+            "purple-box-shadow"
+          )}
         >
           <caption
             className={cN("w-100pr", patrick_hand_sc.className, styles.caption)}
@@ -73,7 +91,13 @@ export default function Prestations() {
           </tbody>
         </table>
         <table
-          className={cN(styles.table, "w-100pr", "gradient-border", "rounded")}
+          className={cN(
+            styles.table,
+            "w-100pr",
+            "gradient-border",
+            "rounded",
+            "purple-box-shadow"
+          )}
         >
           <caption
             className={cN("w-100pr", patrick_hand_sc.className, styles.caption)}
@@ -100,7 +124,13 @@ export default function Prestations() {
           </tbody>
         </table>
         <table
-          className={cN(styles.table, "w-100pr", "gradient-border", "rounded")}
+          className={cN(
+            styles.table,
+            "w-100pr",
+            "gradient-border",
+            "rounded",
+            "purple-box-shadow"
+          )}
         >
           <caption
             className={cN("w-100pr", patrick_hand_sc.className, styles.caption)}
@@ -123,7 +153,13 @@ export default function Prestations() {
           </tbody>
         </table>
         <table
-          className={cN(styles.table, "w-100pr", "gradient-border", "rounded")}
+          className={cN(
+            styles.table,
+            "w-100pr",
+            "gradient-border",
+            "rounded",
+            "purple-box-shadow"
+          )}
         >
           <caption
             className={cN("w-100pr", patrick_hand_sc.className, styles.caption)}
@@ -137,7 +173,13 @@ export default function Prestations() {
           </tbody>
         </table>
         <table
-          className={cN(styles.table, "w-100pr", "gradient-border", "rounded")}
+          className={cN(
+            styles.table,
+            "w-100pr",
+            "gradient-border",
+            "rounded",
+            "purple-box-shadow"
+          )}
         >
           <caption
             className={cN("w-100pr", patrick_hand_sc.className, styles.caption)}
