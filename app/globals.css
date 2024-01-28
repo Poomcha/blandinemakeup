@@ -14,11 +14,11 @@
   --m-s: var(--gap-s);
   --m-m: var(--gap-m);
   --m-l: var(--gap-l);
-  --font-s: 1rem;
-  --font-m: 1.25rem;
-  --font-l: 1.5rem;
-  --font-h1: 2.5rem;
-  --font-h2: 1.75rem;
+  --font-s: 0.6rem;
+  --font-m: 0.8rem;
+  --font-l: 1rem;
+  --font-h1: 2rem;
+  --font-h2: 1.5rem;
 }
 * {
   box-sizing: border-box;
@@ -149,10 +149,5 @@ button {
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
-  }
-}
-@media screen and (min-width: 600px) {
-  * {
-    font-size: var(--font-m);
   }
 }
