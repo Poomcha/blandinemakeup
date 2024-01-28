@@ -1,7 +1,7 @@
 .root {
 }
 .imgctn {
-  height: calc(2 * 100dvh / 5);
+  height: calc(2 * 100vh / 5);
   position: fixed;
 }
 .section {
@@ -10,7 +10,7 @@
   padding: 0 var(--p-s);
   gap: var(--gap-m);
   overflow-y: scroll;
-  margin-top: calc(2 * 100dvh / 5 + var(--gap-m));
+  margin-top: calc(2 * 100vh / 5 + var(--gap-m));
   scrollbar-width: 0;
 }
 .section::-webkit-scrollbar {

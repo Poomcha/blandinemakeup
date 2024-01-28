@@ -14,9 +14,9 @@
   --m-s: var(--gap-s);
   --m-m: var(--gap-m);
   --m-l: var(--gap-l);
-  --font-s: 0.6rem;
-  --font-m: 0.8rem;
-  --font-l: 1rem;
+  --font-s: 0.7rem;
+  --font-m: 0.9rem;
+  --font-l: 1.1rem;
   --font-h1: 2rem;
   --font-h2: 1.5rem;
 }
