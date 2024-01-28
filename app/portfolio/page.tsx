@@ -185,7 +185,7 @@ export default function Portfolio() {
       </div>
       <section className={cN(styles.gallery, "flex")}>
         {gallery}
-        <div className={cN(styles.contacts, "flex", "flex-center")}>
+        <div className={cN(styles.contacts, "flex", "flex-center", "w-100pr")}>
           <Social />
         </div>
       </section>
