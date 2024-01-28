@@ -1,17 +1,20 @@
 "use client";
 
 import styles from "./menu.module.css";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import LinkComponent from "../link/link";
 import Image from "next/image";
 import cN from "classnames";
 import { patrick_hand_sc } from "@/app/font";
+import { MenuStateContext } from "@/context/menu_state";
 
 export default function Menu() {
   const [showMenu, setShowMenu] = useState(false);
+  const menuState = useContext(MenuStateContext);
 
   const closeMenu = () => {
     setShowMenu(false);
+    menuState.setOpen(false);
   };
 
   const navigationLinks = [
@@ -38,6 +41,7 @@ export default function Menu() {
 
   const handleMenu = () => {
     setShowMenu((prev) => !prev);
+    menuState.setOpen((prev) => !prev);
   };
 
   return (

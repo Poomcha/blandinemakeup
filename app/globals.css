@@ -146,6 +146,13 @@ button {
 .text-right {
   text-align: right;
 }
+.block-scroll {
+  overflow-y: hidden;
+  max-height: 100dvh;
+}
+.active-scroll {
+  overflow-y: scroll;
+}
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

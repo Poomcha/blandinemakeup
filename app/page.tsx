@@ -9,12 +9,23 @@ import { get_media_by_hashtag } from "./utils/instagram";
 import Image from "next/image";
 import Social from "@/components/social/social";
 import { patrick_hand_sc } from "./font";
+import { MenuStateContext } from "@/context/menu_state";
 
 export default function Home() {
   const instagram = useContext(InstagramContext as Context<InstagramI>);
   const media_url = get_media_by_hashtag(instagram, "cover");
+  const { open } = useContext(MenuStateContext);
+
   return (
-    <div className={cN(styles.root, "page", "flex", "flex-column")}>
+    <div
+      className={cN(
+        [open ? "block-scroll" : "active-scroll"],
+        styles.root,
+        "page",
+        "flex",
+        "flex-column"
+      )}
+    >
       <div className={cN(styles.imgctn, "w-100pr", "p-relative")}>
         {media_url && (
           <Image
@@ -26,7 +37,15 @@ export default function Home() {
           ></Image>
         )}
       </div>
-      <section className={cN(styles.section, "w-100pr", "flex", "flex-column")}>
+      <section
+        className={cN(
+          [open ? "block-scroll" : "active-scroll"],
+          styles.section,
+          "w-100pr",
+          "flex",
+          "flex-column"
+        )}
+      >
         <h1 className={cN(styles.title, "w-100pr", patrick_hand_sc.className)}>
           Blandine Degenève <br />
           Makeup Artist
