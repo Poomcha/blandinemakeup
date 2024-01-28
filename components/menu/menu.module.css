@@ -2,6 +2,7 @@
   transition: transform 1s ease;
   position: fixed;
   z-index: 1;
+  max-height: 100vh;
 }
 .showMenu {
   transform: translate3d(0, 0, 0);
