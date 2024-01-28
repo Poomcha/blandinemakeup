@@ -1,4 +1,3 @@
-import Link from "next/link";
 import styles from "./social.module.css";
 import cN from "classnames";
 import Image from "next/image";

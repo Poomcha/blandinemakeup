@@ -183,6 +183,9 @@ button {
 .purple-box-shadow {
   box-shadow: 0px 0px 10px var(--box-shadow-purple);
 }
+.purple-box-shadow-y {
+  box-shadow: 0px 5px 10px -2.5px var(--box-shadow-purple);
+}
 .inline {
   display: inline;
 }

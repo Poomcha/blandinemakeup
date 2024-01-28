@@ -38,7 +38,13 @@ export default function LinkComponent({
       target={openNew ? "_blank" : "_self"}
       className={cN("flex", "flex-center", classnames?.join(" "))}
     >
-      <span className={cN(styles.link__text, "gradient-underline")}>
+      <span
+        className={cN(
+          styles.link__text,
+          "gradient-underline",
+          "purple-box-shadow-y"
+        )}
+      >
         {name === "realisations"
           ? "réalisations".toUpperCase()
           : name.toUpperCase()}

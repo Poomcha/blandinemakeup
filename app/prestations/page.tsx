@@ -33,7 +33,7 @@ export default function Prestations() {
           <caption
             className={cN("w-100pr", patrick_hand_sc.className, styles.caption)}
           >
-            <span className="gradient-underline">BEAUTÉ</span>
+            <span>BEAUTÉ</span>
           </caption>
           <tbody>
             <tr>
@@ -62,7 +62,7 @@ export default function Prestations() {
           <caption
             className={cN("w-100pr", patrick_hand_sc.className, styles.caption)}
           >
-            <span className="gradient-underline">ARTISTIQUE</span>
+            <span>ARTISTIQUE</span>
           </caption>
           <tbody>
             <tr>
@@ -82,7 +82,7 @@ export default function Prestations() {
           <caption
             className={cN("w-100pr", patrick_hand_sc.className, styles.caption)}
           >
-            <span className="gradient-underline">ENFANT</span>
+            <span>ENFANT</span>
           </caption>
           <tbody>
             <tr>
@@ -102,7 +102,7 @@ export default function Prestations() {
           <caption
             className={cN("w-100pr", patrick_hand_sc.className, styles.caption)}
           >
-            <span className="gradient-underline">MARIAGE</span>
+            <span>MARIAGE</span>
           </caption>
           <tbody>
             <tr>
@@ -135,7 +135,7 @@ export default function Prestations() {
           <caption
             className={cN("w-100pr", patrick_hand_sc.className, styles.caption)}
           >
-            <span className="gradient-underline">SHOOTING</span>
+            <span>SHOOTING</span>
           </caption>
           <tbody>
             <tr>
@@ -164,7 +164,7 @@ export default function Prestations() {
           <caption
             className={cN("w-100pr", patrick_hand_sc.className, styles.caption)}
           >
-            <span className="gradient-underline">TOURNAGE</span>
+            <span>TOURNAGE</span>
           </caption>
           <tbody>
             <tr>
@@ -184,7 +184,7 @@ export default function Prestations() {
           <caption
             className={cN("w-100pr", patrick_hand_sc.className, styles.caption)}
           >
-            <span className="gradient-underline">ÉVÊNEMENT</span>
+            <span>ÉVÊNEMENT</span>
           </caption>
           <tbody>
             <tr>
