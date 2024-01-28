@@ -5,7 +5,16 @@ import Image from "next/image";
 
 export default function Social() {
   return (
-    <div className={cN(styles.root, "bg-black", "flex")}>
+    <div
+      className={cN(
+        styles.root,
+        "bg-black",
+        "flex",
+        "flex-center",
+        "rounded",
+        "gradient-border"
+      )}
+    >
       <a
         href={"https://www.instagram.com/blandinemakeup34/"}
         target="_blank"

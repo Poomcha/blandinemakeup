@@ -95,6 +95,9 @@
   right: var(--gap-xs);
   z-index: 1;
 }
+.contacts {
+  margin: var(--m-m) 0;
+}
 @media screen and (min-width: 1080px) {
   .controller {
     display: none;

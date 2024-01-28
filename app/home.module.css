@@ -27,6 +27,7 @@
 }
 .contacts {
   margin-bottom: var(--m-s);
+  padding: var(--p-s);
 }
 @media screen and (min-width: 900px) {
   .root {

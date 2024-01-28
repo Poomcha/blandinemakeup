@@ -2,6 +2,7 @@ import styles from "./prestation.module.css";
 
 import cN from "classnames";
 import { patrick_hand_sc } from "../font";
+import Social from "@/components/social/social";
 
 export default function Prestations() {
   return (
@@ -162,6 +163,9 @@ export default function Prestations() {
             </tr>
           </tbody>
         </table>
+        <div className={cN(styles.contacts, "flex", "flex-center")}>
+          <Social />
+        </div>
       </section>
     </div>
   );

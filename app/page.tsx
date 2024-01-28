@@ -68,8 +68,17 @@ painting, le cinéma avec les tournages et la photographie.`}
             {`Je travaille depuis pour des tournages, courts, moyens et longs métrages,
 clips, shootings photos, spectacles et événements variés.`}
           </p>
-          <p>
-            Décrouvrez mes <a href="/realisations">RÉALISATIONS</a> !
+          <p className="flex">
+            <span>
+              Décrouvrez mes{" "}
+              <LinkComponent
+                action={() => {}}
+                href={"/realisations"}
+                name={"realisations"}
+                classnames={["inline"]}
+              ></LinkComponent>{" "}
+              !
+            </span>
           </p>
         </article>
         <div className={cN("flex", "w-100pr", styles.links)}>
@@ -84,7 +93,7 @@ clips, shootings photos, spectacles et événements variés.`}
             name={"prestations"}
           ></LinkComponent>
         </div>
-        <div className={cN(styles.contacts, "flex", "flex-center")}>
+        <div className={cN(styles.contacts, "flex")}>
           <Social />
         </div>
       </section>

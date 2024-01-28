@@ -12,9 +12,16 @@ interface PropsI {
   href: string;
   name: string;
   openNew?: boolean;
+  classnames?: string[];
 }
 
-export default function LinkComponent({ action, href, name, openNew }: PropsI) {
+export default function LinkComponent({
+  action,
+  href,
+  name,
+  openNew,
+  classnames,
+}: PropsI) {
   const pathName = usePathname();
   const isActive =
     name === pathName.slice(1)
@@ -29,7 +36,7 @@ export default function LinkComponent({ action, href, name, openNew }: PropsI) {
       href={href}
       id={name}
       target={openNew ? "_blank" : "_self"}
-      className={cN("flex", "flex-center")}
+      className={cN("flex", "flex-center", classnames?.join(" "))}
     >
       <span className={cN(styles.link__text, "gradient-underline")}>
         {name === "realisations"

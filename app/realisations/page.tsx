@@ -5,6 +5,7 @@ import styles from "./realisations.module.css";
 import cN from "classnames";
 import { patrick_hand_sc } from "../font";
 import useWindowDimensions from "@/hooks/useWindowDimensions";
+import Social from "@/components/social/social";
 
 const globalSidePadding = 24;
 
@@ -106,6 +107,9 @@ export default function Realisations() {
       <h1 className={cN("title", patrick_hand_sc.className)}>RÉALISATIONS</h1>
       <section className={cN(styles.section, "flex", "flex-column", "w-100pr")}>
         {gallery}
+        <div className={cN(styles.contacts, "flex", "flex-center")}>
+          <Social />
+        </div>
       </section>
     </div>
   );

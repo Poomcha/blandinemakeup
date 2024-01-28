@@ -20,6 +20,7 @@ import useWindowDimensions from "@/hooks/useWindowDimensions";
 import Carrousel from "@/components/carrousel/carrousel";
 import React from "react";
 import { patrick_hand_sc } from "../font";
+import Social from "@/components/social/social";
 
 const categories = [
   "tout",
@@ -182,7 +183,12 @@ export default function Portfolio() {
           </div>
         </div>
       </div>
-      <section className={cN(styles.gallery, "flex")}>{gallery}</section>
+      <section className={cN(styles.gallery, "flex")}>
+        {gallery}
+        <div className={cN(styles.contacts, "flex", "flex-center")}>
+          <Social />
+        </div>
+      </section>
       <dialog
         className={cN(styles.dialog, "rounded", "white-border")}
         ref={modalRef}

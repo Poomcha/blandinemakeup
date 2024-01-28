@@ -3,6 +3,10 @@
   height: fit-content;
   gap: var(--gap-s);
   align-items: center;
+  padding: var(--p-s);
+}
+.root > a {
+  display: flex;
 }
 .icon {
   width: 2rem;

@@ -13,8 +13,8 @@ export default function Contact() {
   const instagram = useContext(InstagramContext as Context<InstagramI>);
   const media_url = get_media_by_hashtag(instagram, "contact");
   return (
-    <div className={cN(styles.contact, "page")}>
-      <div className={styles.imgctn}>
+    <div className={cN(styles.root, "page", "p-relative", "flex")}>
+      <div className={cN(styles.imgctn, "p-absolute")}>
         {media_url && (
           <Image
             src={media_url}
@@ -25,9 +25,11 @@ export default function Contact() {
           />
         )}
       </div>
-      <section className={styles.section}>
+      <section className={cN(styles.section, "flex", "flex-column", "w-100pr")}>
         <MailForm />
-        <Social />
+        <div className={cN(styles.social, "bg-black")}>
+          <Social />
+        </div>
       </section>
     </div>
   );

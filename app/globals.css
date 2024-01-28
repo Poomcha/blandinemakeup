@@ -147,6 +147,9 @@ button {
 .white-border {
   border: 2px solid white;
 }
+.red-border {
+  border: 2px solid red;
+}
 .text-center {
   text-align: center;
 }
@@ -179,6 +182,9 @@ button {
 }
 .purple-box-shadow {
   box-shadow: 0px 0px 10px var(--box-shadow-purple);
+}
+.inline {
+  display: inline;
 }
 @media (prefers-color-scheme: dark) {
   html {
