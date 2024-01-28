@@ -19,6 +19,17 @@
   --font-l: 1.1rem;
   --font-h1: 2rem;
   --font-h2: 1.5rem;
+  --gradient-purple-45: linear-gradient(
+    45deg,
+    rgba(215, 0, 211, 1) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  --gradient-purple-90: linear-gradient(
+    90deg,
+    rgba(215, 0, 211, 1) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  --box-shadow-purple: rgba(215, 0, 211, 1);
 }
 * {
   box-sizing: border-box;
@@ -40,8 +51,7 @@ a {
   position: relative;
   color: inherit;
   cursor: pointer;
-  text-decoration: underline 2px;
-  text-underline-offset: 5px;
+  text-decoration: none;
 }
 h1 {
   line-height: 2rem;
@@ -152,6 +162,23 @@ button {
 }
 .active-scroll {
   overflow-y: scroll;
+}
+.gradient-underline {
+  border-bottom: 2px solid transparent;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-image: var(--gradient-purple-90);
+  border-image-slice: 1;
+}
+.gradient-border {
+  border: 2px solid transparent;
+  background-image: linear-gradient(black, black), var(--gradient-purple-45);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+.purple-box-shadow {
+  box-shadow: 0px 0px 10px var(--box-shadow-purple);
 }
 @media (prefers-color-scheme: dark) {
   html {

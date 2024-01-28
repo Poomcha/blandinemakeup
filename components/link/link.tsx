@@ -31,7 +31,7 @@ export default function LinkComponent({ action, href, name, openNew }: PropsI) {
       target={openNew ? "_blank" : "_self"}
       className={cN("flex", "flex-center")}
     >
-      <span className={styles.link__text}>
+      <span className={cN(styles.link__text, "gradient-underline")}>
         {name === "realisations"
           ? "réalisations".toUpperCase()
           : name.toUpperCase()}

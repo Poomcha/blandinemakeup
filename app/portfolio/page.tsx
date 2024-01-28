@@ -170,7 +170,7 @@ export default function Portfolio() {
             {categories.map((category, index) => (
               <React.Fragment key={category + index}>
                 <a
-                  className={cN(styles.filter, "rounded")}
+                  className={cN(styles.filter, "rounded", "white-border")}
                   data-category={category}
                   data-active={activeCategory === category}
                   onClick={handleFilter}

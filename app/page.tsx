@@ -19,7 +19,7 @@ export default function Home() {
   return (
     <div
       className={cN(
-        [open ? "block-scroll" : "active-scroll"],
+        [open && "block-scroll"],
         styles.root,
         "page",
         "flex",
